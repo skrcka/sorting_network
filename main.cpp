@@ -36,8 +36,11 @@ int main() {
             cout << arr[i][j] << ',';
         }
         */
-        cout << " time: " << duration.count() << endl;
+        printf(" time: %ld\n", duration.count());
     }
+
+    sorter->kill();
+    delete sorter;
 
     return 0;
 }

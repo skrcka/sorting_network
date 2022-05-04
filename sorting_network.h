@@ -12,15 +12,17 @@ class odd_even_8 {
 public:
     void sort(int arr[]);
     odd_even_8();
+    void kill();
 
 private:
     void reset();
     void reset_run(bool value);
     std::thread threads[4];
     void thread_fn(int index);
-    int len_per_step[7];
+    int len_per_step[6];
+    bool killed;
     bool run[4];
-    int steps[7][4][2];
+    int steps[6][4][2];
     int* arr;
     std::atomic<int> step;
     std::atomic<int> done;

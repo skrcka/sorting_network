@@ -10,7 +10,7 @@ using std::thread;
 
 void odd_even_8::thread_fn(int index) {
     // cout << "started thread: " << index << endl;
-    while(true){
+    while(!killed){
         if(run[index]){
             int step = this->step;
             if(index >= len_per_step[step]){
@@ -19,13 +19,13 @@ void odd_even_8::thread_fn(int index) {
             }
             if(step == -1)
                 continue;
-            //printf("stage:%d; index: %d arr_index: %d, %d\n", step, index, steps[step][index][0], steps[step][index][1]);
+            //printf("stage:%d; index: %d\n", step, index);
             //printf("nums: %d, %d\n", arr[steps[step][index][0]], arr[steps[step][index][1]]);
             if(arr[steps[step][index][0]] > arr[steps[step][index][1]]){
                 //cout << step << " " << arr[steps[step][index][0]] << " and " << arr[steps[step][index][1]] << " index: " << index << endl;
                 swap(arr[steps[step][index][0]], arr[steps[step][index][1]]);
             }
-            cout << "done: " << done.load() << endl;
+            //cout << "done: " << done.load() << endl;
             done++;
             //inc_done();
             run[index] = false;
@@ -46,7 +46,15 @@ void odd_even_8::reset_run(bool value) {
     }
 }
 
+void odd_even_8::kill() {
+    this->killed = true;
+    for(int i=0; i < sizeof(threads) / sizeof(threads[0]); i++){
+        this->threads[i].join();
+    }
+}
+
 odd_even_8::odd_even_8(){
+    this->killed = false;
     this->reset();
     steps[0][0][0] = 0;
     steps[0][0][1] = 1;
@@ -85,25 +93,19 @@ odd_even_8::odd_even_8(){
     steps[4][1][0] = 3;
     steps[4][1][1] = 5;
 
-    steps[5][0][0] = 2;
-    steps[5][0][1] = 4;
+    steps[5][0][0] = 1;
+    steps[5][0][1] = 2;
     steps[5][1][0] = 3;
-    steps[5][1][1] = 5;
-
-    steps[6][0][0] = 1;
-    steps[6][0][1] = 2;
-    steps[6][1][0] = 3;
-    steps[6][1][1] = 4;
-    steps[6][2][0] = 5;
-    steps[6][2][1] = 6;
+    steps[5][1][1] = 4;
+    steps[5][2][0] = 5;
+    steps[5][2][1] = 6;
 
     len_per_step[0] = 4;
     len_per_step[1] = 4;
     len_per_step[2] = 2;
     len_per_step[3] = 4;
     len_per_step[4] = 2;
-    len_per_step[5] = 2;
-    len_per_step[6] = 3;
+    len_per_step[5] = 3;
 
     for(int i=0; i < sizeof(threads) / sizeof(threads[0]); i++){
         this->threads[i] = thread(&odd_even_8::thread_fn, this, i);
@@ -114,8 +116,10 @@ void odd_even_8::sort(int* arr){
     this->arr = arr;
     this->step = 0;
     this->reset_run(true);
-    while(step < 7) {
+    while(step < 6) {
         if(done == len_per_step[step]) {
+            if(step == 5)
+                break;
             step++;
             //printf("step: %d\n", step.load());
             done = 0;
@@ -147,7 +151,7 @@ void make_step_parael(int arr[], int step[][2], int len)
         threads[i] = thread(check_and_swap, arr, step[i][0], step[i][1]);
     }
     for(int i=0; i < len; i++) 
-        threads[i].join(); 
+        threads[i].join();
 }
 
 void sort_odd_even8(int arr[], bool use_threads){
