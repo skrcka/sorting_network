@@ -1,59 +1,70 @@
 #include "sorting_network.h"
 #include <cstdio>
 
-using std::min;
-using std::floor;
-using std::swap;
 using std::cout;
 using std::endl;
+using std::floor;
+using std::min;
+using std::swap;
 using std::thread;
 
-void odd_even_8::thread_fn(int index) {
+void odd_even_8::thread_fn(int index)
+{
     // cout << "started thread: " << index << endl;
-    while(!killed){
-        if(run[index]){
+    while (!killed)
+    {
+        if (run[index])
+        {
             int step = this->step;
-            if(index >= len_per_step[step]){
+            if (index >= len_per_step[step])
+            {
                 run[index] = false;
                 continue;
             }
-            if(step == -1)
+            if (step == -1)
                 continue;
-            //printf("stage:%d; index: %d\n", step, index);
-            //printf("nums: %d, %d\n", arr[steps[step][index][0]], arr[steps[step][index][1]]);
-            if(arr[steps[step][index][0]] > arr[steps[step][index][1]]){
-                //cout << step << " " << arr[steps[step][index][0]] << " and " << arr[steps[step][index][1]] << " index: " << index << endl;
+            // printf("stage:%d; index: %d\n", step, index);
+            // printf("nums: %d, %d\n", arr[steps[step][index][0]], arr[steps[step][index][1]]);
+            if (arr[steps[step][index][0]] > arr[steps[step][index][1]])
+            {
+                // cout << step << " " << arr[steps[step][index][0]] << " and " << arr[steps[step][index][1]] << " index: " << index << endl;
                 swap(arr[steps[step][index][0]], arr[steps[step][index][1]]);
             }
-            //cout << "done: " << done.load() << endl;
+            // cout << "done: " << done.load() << endl;
             done++;
-            //inc_done();
+            // inc_done();
             run[index] = false;
         }
     }
 }
 
-void odd_even_8::reset(){
+void odd_even_8::reset()
+{
     this->reset_run(false);
     this->step = -1;
     this->arr = nullptr;
     this->done = 0;
 }
 
-void odd_even_8::reset_run(bool value) {
-    for(int i=0; i<4; i++){
+void odd_even_8::reset_run(bool value)
+{
+    for (int i = 0; i < 4; i++)
+    {
         run[i] = value;
     }
 }
 
-void odd_even_8::kill() {
+void odd_even_8::kill()
+{
     this->killed = true;
-    for(int i=0; i < sizeof(threads) / sizeof(threads[0]); i++){
+    for (int i = 0; i < sizeof(threads) / sizeof(threads[0]); i++)
+    {
         this->threads[i].join();
     }
 }
 
-odd_even_8::odd_even_8(){
+odd_even_8::odd_even_8()
+{
     this->killed = false;
     this->reset();
     steps[0][0][0] = 0;
@@ -107,21 +118,25 @@ odd_even_8::odd_even_8(){
     len_per_step[4] = 2;
     len_per_step[5] = 3;
 
-    for(int i=0; i < sizeof(threads) / sizeof(threads[0]); i++){
+    for (int i = 0; i < sizeof(threads) / sizeof(threads[0]); i++)
+    {
         this->threads[i] = thread(&odd_even_8::thread_fn, this, i);
     }
 }
 
-void odd_even_8::sort(int* arr){
+void odd_even_8::sort(int *arr)
+{
     this->arr = arr;
     this->step = 0;
     this->reset_run(true);
-    while(step < 6) {
-        if(done == len_per_step[step]) {
-            if(step == 5)
+    while (step < 6)
+    {
+        if (done == len_per_step[step])
+        {
+            if (step == 5)
                 break;
             step++;
-            //printf("step: %d\n", step.load());
+            // printf("step: %d\n", step.load());
             done = 0;
             this->reset_run(true);
         }
@@ -131,30 +146,36 @@ void odd_even_8::sort(int* arr){
 
 void make_step(int arr[], int step[][2], int len)
 {
-    for(int i=0; i < len; i++){
-        if(arr[step[i][0]] > arr[step[i][1]]){
+    for (int i = 0; i < len; i++)
+    {
+        if (arr[step[i][0]] > arr[step[i][1]])
+        {
             swap(arr[step[i][0]], arr[step[i][1]]);
         }
     }
 }
 
-void check_and_swap(int arr[], int index1, int index2){
-    if(arr[index1] > arr[index2]){
-            swap(arr[index1], arr[index2]);
-        }
+void check_and_swap(int arr[], int index1, int index2)
+{
+    if (arr[index1] > arr[index2])
+    {
+        swap(arr[index1], arr[index2]);
+    }
 }
 
 void make_step_parael(int arr[], int step[][2], int len)
 {
     thread threads[len];
-    for(int i=0; i < len; i++){
+    for (int i = 0; i < len; i++)
+    {
         threads[i] = thread(check_and_swap, arr, step[i][0], step[i][1]);
     }
-    for(int i=0; i < len; i++) 
+    for (int i = 0; i < len; i++)
         threads[i].join();
 }
 
-void sort_odd_even8(int arr[], bool use_threads){
+void sort_odd_even8(int arr[], bool use_threads)
+{
     int step1[4][2];
     step1[0][0] = 0;
     step1[0][1] = 1;
@@ -164,7 +185,7 @@ void sort_odd_even8(int arr[], bool use_threads){
     step1[2][1] = 5;
     step1[3][0] = 6;
     step1[3][1] = 7;
-    if(use_threads)
+    if (use_threads)
         make_step_parael(arr, step1, 4);
     else
         make_step(arr, step1, 4);
@@ -178,7 +199,7 @@ void sort_odd_even8(int arr[], bool use_threads){
     step2[2][1] = 6;
     step2[3][0] = 5;
     step2[3][1] = 7;
-    if(use_threads)
+    if (use_threads)
         make_step_parael(arr, step2, 4);
     else
         make_step(arr, step2, 4);
@@ -188,7 +209,7 @@ void sort_odd_even8(int arr[], bool use_threads){
     step3[0][1] = 2;
     step3[1][0] = 5;
     step3[1][1] = 6;
-    if(use_threads)
+    if (use_threads)
         make_step_parael(arr, step3, 2);
     else
         make_step(arr, step3, 2);
@@ -202,7 +223,7 @@ void sort_odd_even8(int arr[], bool use_threads){
     step4[2][1] = 6;
     step4[3][0] = 3;
     step4[3][1] = 7;
-    if(use_threads)
+    if (use_threads)
         make_step_parael(arr, step4, 4);
     else
         make_step(arr, step4, 4);
@@ -212,7 +233,7 @@ void sort_odd_even8(int arr[], bool use_threads){
     step5[0][1] = 4;
     step5[1][0] = 3;
     step5[1][1] = 5;
-    if(use_threads)
+    if (use_threads)
         make_step_parael(arr, step5, 2);
     else
         make_step(arr, step5, 2);
@@ -222,7 +243,7 @@ void sort_odd_even8(int arr[], bool use_threads){
     step6[0][1] = 4;
     step6[1][0] = 3;
     step6[1][1] = 5;
-    if(use_threads)
+    if (use_threads)
         make_step_parael(arr, step6, 2);
     else
         make_step(arr, step6, 2);
@@ -234,7 +255,7 @@ void sort_odd_even8(int arr[], bool use_threads){
     step7[1][1] = 4;
     step7[2][0] = 5;
     step7[2][1] = 6;
-    if(use_threads)
+    if (use_threads)
         make_step_parael(arr, step7, 3);
     else
         make_step(arr, step7, 3);

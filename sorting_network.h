@@ -8,7 +8,8 @@
 
 void sort_odd_even8(int arr[], bool use_threads);
 
-class odd_even_8 {
+class odd_even_8
+{
 public:
     void sort(int arr[]);
     odd_even_8();
@@ -23,7 +24,7 @@ private:
     bool killed;
     bool run[4];
     int steps[6][4][2];
-    int* arr;
+    int *arr;
     std::atomic<int> step;
     std::atomic<int> done;
 };
