@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "cmath": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "algorithm": "cpp",
+        "thread": "cpp",
+        "xtime": "cpp",
+        "chrono": "cpp",
+        "list": "cpp",
+        "queue": "cpp",
+        "xxatomic": "cpp",
+        "mutex": "cpp",
+        "utility": "cpp"
+    }
+}
