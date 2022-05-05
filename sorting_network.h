@@ -20,12 +20,14 @@ public:
 private:
     void reset();
     void reset_run(bool value);
-    std::thread threads[4];
+    std::thread* threads;
     void thread_fn(int index);
-    int len_per_step[6];
+    int* len_per_step;
     std::atomic<bool> killed;
     bool run[4];
-    int steps[6][4][2];
+    int step_count;
+    int thread_count;
+    int*** steps;
     int *arr;
     std::atomic<int> step;
     std::atomic<int> done;

@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <algorithm>
 #include <chrono>
-#include <unistd.h>
 
 #include "sorting_network.h"
 
@@ -13,8 +12,8 @@ using namespace std::chrono;
 int main()
 {
     srand(time(0));
-    int arr[256][8];
-    for (int i = 0; i < 256; i++)
+    int arr[10][8];
+    for (int i = 0; i < 10; i++)
     {
         for (int j = 0; j < 8; j++)
         {
@@ -24,13 +23,11 @@ int main()
 
     SortingNetwork *sorter = new SortingNetwork();
 
-    sleep(1);
-
-    for (int i = 0; i < 256; i++)
+    for (int i = 0; i < 10; i++)
     {
         auto start = high_resolution_clock::now();
         sorter->sort(arr[i]);
-        // sort_odd_even8(arr, false); // norm: 1400, par: 2349900
+        //sort_odd_even8(arr[i], true); // norm: 1400, par: 2349900
         auto stop = high_resolution_clock::now(); // time: 4300
 
         auto duration = duration_cast<nanoseconds>(stop - start);
@@ -43,10 +40,7 @@ int main()
         printf("%d time: %ld\n", i, duration.count());
     }
 
-    printf("before delete\n");
     delete sorter;
-    printf("delete\n");
-
 
     return 0;
 }
