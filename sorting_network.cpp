@@ -11,11 +11,13 @@ using std::thread;
 void SortingNetwork::thread_fn(int index)
 {
     // cout << "started thread: " << index << endl;
+    //int step = this->step;
     while (!killed)
     {
+        //printf("atter not killed\n");
         if (run[index])
         {
-            int step = this->step;
+            //int step = this->step;
             if (index >= len_per_step[step])
             {
                 run[index] = false;
@@ -23,18 +25,19 @@ void SortingNetwork::thread_fn(int index)
             }
             if (step == -1)
                 continue;
-            // printf("stage:%d; index: %d\n", step, index);
-            // printf("nums: %d, %d\n", arr[steps[step][index][0]], arr[steps[step][index][1]]);
+            fprintf(stderr, "stage: %d; index: %d\n", step.load(), index);
             if (arr[steps[step][index][0]] > arr[steps[step][index][1]])
             {
                 // cout << step << " " << arr[steps[step][index][0]] << " and " << arr[steps[step][index][1]] << " index: " << index << endl;
                 swap(arr[steps[step][index][0]], arr[steps[step][index][1]]);
             }
             // cout << "done: " << done.load() << endl;
-            done++;
             run[index] = false;
+            done++;
+            fprintf(stderr, "stage: %d; index: %d done\n", step.load(), index);
         }
     }
+    //printf("exited\n");
     return;
 }
 
@@ -63,6 +66,7 @@ SortingNetwork::~SortingNetwork()
     }
     delete[] threads;
     delete[] len_per_step;
+    delete[] run;
     for (int i = 0; i < step_count; i++)
     {
         for (int j = 0; j < thread_count; j++)
@@ -76,6 +80,7 @@ SortingNetwork::SortingNetwork()
 {
     thread_count = 4;
     threads = new thread[thread_count];
+    run = new bool[thread_count];
     step_count = 6;
     steps = new int **[step_count];
     len_per_step = new int[step_count];
@@ -154,6 +159,7 @@ void SortingNetwork::sort(int *arr)
     {
         if (done == len_per_step[step])
         {
+            this->reset_run(false);
             if (step == 5)
                 break;
             step++;

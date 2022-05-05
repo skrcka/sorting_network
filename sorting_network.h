@@ -23,8 +23,8 @@ private:
     std::thread* threads;
     void thread_fn(int index);
     int* len_per_step;
-    std::atomic<bool> killed;
-    bool run[4];
+    bool killed;
+    bool* run;
     int step_count;
     int thread_count;
     int*** steps;
