@@ -12,8 +12,8 @@ using namespace std::chrono;
 int main()
 {
     srand(time(0));
-    int arr[10][8];
-    for (int i = 0; i < 10; i++)
+    int arr[256][8];
+    for (int i = 0; i < 256; i++)
     {
         for (int j = 0; j < 8; j++)
         {
@@ -23,7 +23,7 @@ int main()
 
     SortingNetwork *sorter = new SortingNetwork();
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 256; i++)
     {
         auto start = high_resolution_clock::now();
         sorter->sort(arr[i]);
