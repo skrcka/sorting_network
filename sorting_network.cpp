@@ -32,7 +32,6 @@ void SortingNetwork::thread_fn(int index)
             }
             // cout << "done: " << done.load() << endl;
             done++;
-            // inc_done();
             run[index] = false;
         }
     }
@@ -55,7 +54,8 @@ void SortingNetwork::reset_run(bool value)
     }
 }
 
-SortingNetwork::~SortingNetwork(){
+SortingNetwork::~SortingNetwork()
+{
     this->killed = true;
     for (int i = 0; i < thread_count; i++)
     {
@@ -63,8 +63,9 @@ SortingNetwork::~SortingNetwork(){
     }
     delete[] threads;
     delete[] len_per_step;
-    for (int i=0; i < step_count; i++){
-        for(int j=0; j < thread_count; j++)
+    for (int i = 0; i < step_count; i++)
+    {
+        for (int j = 0; j < thread_count; j++)
             delete[] steps[i][j];
         delete[] steps[i];
     }
@@ -76,7 +77,7 @@ SortingNetwork::SortingNetwork()
     thread_count = 4;
     threads = new thread[thread_count];
     step_count = 6;
-    steps = new int**[step_count];
+    steps = new int **[step_count];
     len_per_step = new int[step_count];
     len_per_step[0] = 4;
     len_per_step[1] = 4;
@@ -84,9 +85,11 @@ SortingNetwork::SortingNetwork()
     len_per_step[3] = 4;
     len_per_step[4] = 2;
     len_per_step[5] = 3;
-    for (int i=0; i < step_count; i++){
-        steps[i] = new int*[thread_count];
-        for (int j=0; j < thread_count; j++){
+    for (int i = 0; i < step_count; i++)
+    {
+        steps[i] = new int *[thread_count];
+        for (int j = 0; j < thread_count; j++)
+        {
             steps[i][j] = new int[2];
         }
     }
@@ -162,7 +165,7 @@ void SortingNetwork::sort(int *arr)
     reset();
 }
 
-void make_step(int* arr, int step[][2], int len)
+void make_step(int *arr, int step[][2], int len)
 {
     for (int i = 0; i < len; i++)
     {
@@ -173,7 +176,7 @@ void make_step(int* arr, int step[][2], int len)
     }
 }
 
-void check_and_swap(int* arr, int index1, int index2)
+void check_and_swap(int *arr, int index1, int index2)
 {
     if (arr[index1] > arr[index2])
     {
@@ -181,7 +184,7 @@ void check_and_swap(int* arr, int index1, int index2)
     }
 }
 
-void make_step_parael(int* arr, int step[][2], int len)
+void make_step_parael(int *arr, int step[][2], int len)
 {
     thread threads[len];
     for (int i = 0; i < len; i++)
@@ -192,7 +195,7 @@ void make_step_parael(int* arr, int step[][2], int len)
         threads[i].join();
 }
 
-void sort_odd_even8(int* arr, bool use_threads)
+void sort_odd_even8(int *arr, bool use_threads)
 {
     int step1[4][2];
     step1[0][0] = 0;
