@@ -8,7 +8,7 @@ using std::min;
 using std::swap;
 using std::thread;
 
-void odd_even_8::thread_fn(int index)
+void SortingNetwork::thread_fn(int index)
 {
     // cout << "started thread: " << index << endl;
     while (!killed)
@@ -36,9 +36,10 @@ void odd_even_8::thread_fn(int index)
             run[index] = false;
         }
     }
+    return;
 }
 
-void odd_even_8::reset()
+void SortingNetwork::reset()
 {
     this->reset_run(false);
     this->step = -1;
@@ -46,7 +47,7 @@ void odd_even_8::reset()
     this->done = 0;
 }
 
-void odd_even_8::reset_run(bool value)
+void SortingNetwork::reset_run(bool value)
 {
     for (int i = 0; i < 4; i++)
     {
@@ -54,16 +55,18 @@ void odd_even_8::reset_run(bool value)
     }
 }
 
-void odd_even_8::kill()
-{
+SortingNetwork::~SortingNetwork(){
+    cout << "killing" << endl;
     this->killed = true;
+    cout << "killed" << endl;
     for (int i = 0; i < sizeof(threads) / sizeof(threads[0]); i++)
     {
+        cout << "joining thread: " << i << endl;
         this->threads[i].join();
     }
 }
 
-odd_even_8::odd_even_8()
+SortingNetwork::SortingNetwork()
 {
     this->killed = false;
     this->reset();
@@ -120,11 +123,11 @@ odd_even_8::odd_even_8()
 
     for (int i = 0; i < sizeof(threads) / sizeof(threads[0]); i++)
     {
-        this->threads[i] = thread(&odd_even_8::thread_fn, this, i);
+        this->threads[i] = thread(&SortingNetwork::thread_fn, this, i);
     }
 }
 
-void odd_even_8::sort(int *arr)
+void SortingNetwork::sort(int *arr)
 {
     this->arr = arr;
     this->step = 0;

@@ -10,12 +10,12 @@
 
 void sort_odd_even8(int arr[], bool use_threads);
 
-class odd_even_8
+class SortingNetwork
 {
 public:
     void sort(int arr[]);
-    odd_even_8();
-    void kill();
+    SortingNetwork();
+    ~SortingNetwork();
 
 private:
     void reset();
@@ -23,7 +23,7 @@ private:
     std::thread threads[4];
     void thread_fn(int index);
     int len_per_step[6];
-    bool killed;
+    std::atomic<bool> killed;
     bool run[4];
     int steps[6][4][2];
     int *arr;

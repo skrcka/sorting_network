@@ -22,7 +22,7 @@ int main()
         }
     }
 
-    odd_even_8 *sorter = new odd_even_8();
+    SortingNetwork *sorter = new SortingNetwork();
 
     sleep(1);
 
@@ -40,11 +40,13 @@ int main()
             cout << arr[i][j] << ',';
         }
         */
-        printf(" time: %ld\n", duration.count());
+        printf("%d time: %ld\n", i, duration.count());
     }
 
-    sorter->kill();
+    printf("before delete\n");
     delete sorter;
+    printf("delete\n");
+
 
     return 0;
 }
