@@ -9,11 +9,13 @@ using std::cout;
 using std::endl;
 using namespace std::chrono;
 
+#define ARRCOUNT 256
+
 int main()
 {
     srand(time(0));
-    int arr[256][8];
-    for (int i = 0; i < 256; i++)
+    int arr[ARRCOUNT][8];
+    for (int i = 0; i < ARRCOUNT; i++)
     {
         for (int j = 0; j < 8; j++)
         {
@@ -23,7 +25,7 @@ int main()
 
     SortingNetwork *sorter = new SortingNetwork();
 
-    for (int i = 0; i < 256; i++)
+    for (int i = 0; i < ARRCOUNT; i++)
     {
         auto start = high_resolution_clock::now();
         sorter->sort(arr[i]);
@@ -36,6 +38,7 @@ int main()
         for(int j=0; j < 8; j++){
             cout << arr[i][j] << ',';
         }
+        cout << endl;
         */
         printf("%d time: %ld\n", i, duration.count());
     }
