@@ -10,46 +10,37 @@ using std::thread;
 
 void SortingNetwork::thread_fn(int index)
 {
-    // cout << "started thread: " << index << endl;
-    //int step = this->step;
     while (!killed)
     {
-        //printf("atter not killed\n");
-        if (run[index])
+        if (run[index] == 1)
         {
-            //int step = this->step;
+            run[index] = 2;
             if (index >= len_per_step[step])
             {
-                run[index] = false;
+                run[index] = 0;
                 continue;
             }
             if (step == -1)
                 continue;
-            fprintf(stderr, "stage: %d; index: %d\n", step.load(), index);
+            //fprintf(stderr, "stage: %d; index: %d\n", step.load(), index);
             if (arr[steps[step][index][0]] > arr[steps[step][index][1]])
             {
-                // cout << step << " " << arr[steps[step][index][0]] << " and " << arr[steps[step][index][1]] << " index: " << index << endl;
                 swap(arr[steps[step][index][0]], arr[steps[step][index][1]]);
             }
-            // cout << "done: " << done.load() << endl;
-            run[index] = false;
-            done++;
-            fprintf(stderr, "stage: %d; index: %d done\n", step.load(), index);
+            run[index] = 0;
         }
     }
-    //printf("exited\n");
     return;
 }
 
 void SortingNetwork::reset()
 {
-    this->reset_run(false);
+    this->reset_run(0);
     this->step = -1;
     this->arr = nullptr;
-    this->done = 0;
 }
 
-void SortingNetwork::reset_run(bool value)
+void SortingNetwork::reset_run(int value)
 {
     for (int i = 0; i < 4; i++)
     {
@@ -80,7 +71,7 @@ SortingNetwork::SortingNetwork()
 {
     thread_count = 4;
     threads = new thread[thread_count];
-    run = new bool[thread_count];
+    run = new int[thread_count];
     step_count = 6;
     steps = new int **[step_count];
     len_per_step = new int[step_count];
@@ -150,22 +141,29 @@ SortingNetwork::SortingNetwork()
     }
 }
 
+int SortingNetwork::check_run() {
+    for(int i=0; i < thread_count; i++){
+        if(run[i] == 1)
+            return 1;
+        if(run[i] == 2)
+            return 2;
+    }
+    return 0;
+}
+
 void SortingNetwork::sort(int *arr)
 {
     this->arr = arr;
     this->step = 0;
-    this->reset_run(true);
+    this->reset_run(1);
     while (step < 6)
     {
-        if (done == len_per_step[step])
+        if (!check_run())
         {
-            this->reset_run(false);
             if (step == 5)
                 break;
             step++;
-            // printf("step: %d\n", step.load());
-            done = 0;
-            this->reset_run(true);
+            this->reset_run(1);
         }
     }
     reset();
