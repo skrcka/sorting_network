@@ -19,16 +19,16 @@ public:
 
 private:
     void reset();
-    void reset_run(bool value);
+    void reset_run(int value);
     std::thread* threads;
     void thread_fn(int index);
     int* len_per_step;
     bool killed;
-    bool* run;
+    int* run;
     int step_count;
     int thread_count;
     int*** steps;
     int *arr;
+    int check_run();
     std::atomic<int> step;
-    std::atomic<int> done;
 };
