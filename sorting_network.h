@@ -21,15 +21,15 @@ public:
 private:
     void reset();
     void reset_run(int value);
-    std::thread* threads;
+    std::thread *threads;
     void thread_fn(int index);
-    int* len_per_step;
+    int *len_per_step;
     bool killed;
-    int* run;
+    int *run;
     int step_count;
     int thread_count;
-    int*** steps;
+    int ***steps;
     int *arr;
     int check_run();
-    std::atomic<int> step;
+    int step;
 };

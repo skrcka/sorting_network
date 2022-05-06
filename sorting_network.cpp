@@ -2,18 +2,19 @@
 #include <vector>
 #include <cstdio>
 
+using std::count;
 using std::cout;
 using std::endl;
 using std::floor;
+using std::make_pair;
+using std::max_element;
 using std::min;
+using std::pair;
 using std::swap;
 using std::thread;
 using std::vector;
-using std::pair;
-using std::make_pair;
-using std::count;
-using std::max_element;
-using std::min;
+
+#define MAXTHREAD 12
 
 void SortingNetwork::thread_fn(int index)
 {
@@ -27,9 +28,7 @@ void SortingNetwork::thread_fn(int index)
                 run[index] = 0;
                 continue;
             }
-            if (step == -1)
-                continue;
-            //fprintf(stderr, "stage: %d; index: %d\n", step.load(), index);
+            // fprintf(stderr, "stage: %d; index: %d\n", step.load(), index);
             if (arr[steps[step][index][0]] > arr[steps[step][index][1]])
             {
                 swap(arr[steps[step][index][0]], arr[steps[step][index][1]]);
@@ -80,40 +79,45 @@ SortingNetwork::SortingNetwork(int len)
     vector<int> vec1;
     vector<int> vec2;
 
-    for (int p=1; p<len; p+=p)
-        for (int k=p; k>0; k/=2)
-            for (int j=k%p; j<=len-1-k; j+=(k+k))
-                for (int i=0; i<=min(k-1,len-j-k-1); i++)
-                    if (floor((j+i)/(p+p)) == floor((j+i+k)/(p+p))){
-                        vec1.push_back(j+i);
-                        vec2.push_back(j+i+k);
+    for (int p = 1; p < len; p += p)
+        for (int k = p; k > 0; k /= 2)
+            for (int j = k % p; j <= len - 1 - k; j += (k + k))
+                for (int i = 0; i <= min(k - 1, len - j - k - 1); i++)
+                    if (floor((j + i) / (p + p)) == floor((j + i + k) / (p + p)))
+                    {
+                        vec1.push_back(j + i);
+                        vec2.push_back(j + i + k);
                     }
 
     int size = vec1.size();
     vector<int> visited;
     vector<int> lens;
 
-    for(int i=0; i < size; i++){
-        if (count(visited.begin(), visited.end(), vec1[i]) || count(visited.begin(), visited.end(), vec2[i])){
+    for (int i = 0; i < size; i++)
+    {
+        if (count(visited.begin(), visited.end(), vec1[i]) || count(visited.begin(), visited.end(), vec2[i]))
+        {
             int vis = visited.size() / 2;
             lens.push_back(vis);
-            
+
             visited.clear();
         }
 
         visited.push_back(vec1[i]);
         visited.push_back(vec2[i]);
 
-        if (i == size - 1){
+        if (i == size - 1)
+        {
             int vis = visited.size() / 2;
             lens.push_back(vis);
-            
+
             visited.clear();
         }
     }
     step_count = lens.size();
     len_per_step = new int[step_count];
-    for(int i=0; i < step_count; i++){
+    for (int i = 0; i < step_count; i++)
+    {
         len_per_step[i] = lens[i];
     }
     thread_count = *std::max_element(begin(lens), end(lens));
@@ -131,12 +135,12 @@ SortingNetwork::SortingNetwork(int len)
             steps[i][j] = new int[2];
             steps[i][j][0] = vec1[index];
             steps[i][j][1] = vec2[index];
-            //cout << "steps[" << i << "][" << j << "]" << "[0]: " << steps[i][j][0] << endl;
-            //cout << "steps[" << i << "][" << j << "]" << "[1]: " << steps[i][j][1] << endl;
+            // cout << "steps[" << i << "][" << j << "]" << "[0]: " << steps[i][j][0] << endl;
+            // cout << "steps[" << i << "][" << j << "]" << "[1]: " << steps[i][j][1] << endl;
             index++;
         }
     }
-    
+
     this->reset();
 
     for (int i = 0; i < thread_count; i++)
@@ -219,11 +223,13 @@ SortingNetwork::SortingNetwork()
     }
 }
 
-int SortingNetwork::check_run() {
-    for(int i=0; i < thread_count; i++){
-        if(run[i] == 1)
+int SortingNetwork::check_run()
+{
+    for (int i = 0; i < thread_count; i++)
+    {
+        if (run[i] == 1)
             return 1;
-        if(run[i] == 2)
+        if (run[i] == 2)
             return 2;
     }
     return 0;
@@ -238,7 +244,7 @@ void SortingNetwork::sort(int *arr)
     {
         if (!check_run())
         {
-            if (step == step_count-1)
+            if (step == step_count - 1)
                 break;
             step++;
             this->reset_run(1);
