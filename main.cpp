@@ -12,8 +12,8 @@ using std::cout;
 using std::endl;
 using namespace std::chrono;
 
-#define ARRCOUNT 100
-#define ARRSIZE 64
+#define ARRCOUNT 1000
+#define ARRSIZE 32
 
 int main()
 {
@@ -27,14 +27,14 @@ int main()
         }
     }
 
-    //SortingNetwork *sorter = new SortingNetwork(ARRSIZE);
+    SortingNetwork *sorter = new SortingNetwork(ARRSIZE);
     SortingNetworkOmp *ompsorter = new SortingNetworkOmp(ARRSIZE);
     SortingNetworkSeq *seqsorter = new SortingNetworkSeq(ARRSIZE);
 
     for (int i = 0; i < ARRCOUNT; i++)
     {
         int arrcopy[ARRSIZE];
-        memcpy(arrcopy, arr[i], ARRSIZE);
+        memcpy(arrcopy, arr[i], ARRSIZE * sizeof(int));
 
         auto start = high_resolution_clock::now();
         //sorter->sort(arr[i]);
@@ -44,19 +44,20 @@ int main()
         auto duration = duration_cast<nanoseconds>(stop - start);
         printf("arr(%d) sequential time: %ld\n", i, duration.count());
 
+        memcpy(arrcopy, arr[i], ARRSIZE * sizeof(int));
         start = high_resolution_clock::now();
         ompsorter->sort(arrcopy);
         stop = high_resolution_clock::now();
         duration = duration_cast<nanoseconds>(stop - start);
         printf("arr(%d) openmp time: %ld\n", i, duration.count());
 
-        //auto start = high_resolution_clock::now();
-        //sorter->sort(arr[i]);
-        //ompsorter->sort(arrcopy);
-        // sort_odd_even8(arr[i], true);
-        //auto stop = high_resolution_clock::now();
-        //auto duration = duration_cast<nanoseconds>(stop - start);
-        //printf("%d time: %ld\n", i, duration.count());
+        memcpy(arrcopy, arr[i], ARRSIZE * sizeof(int));
+        start = high_resolution_clock::now();
+        sorter->sort(arr[i]);
+        ompsorter->sort(arrcopy);
+        stop = high_resolution_clock::now();
+        duration = duration_cast<nanoseconds>(stop - start);
+        printf("%d own paralel time: %ld\n", i, duration.count());
     }
 
     //delete sorter;
