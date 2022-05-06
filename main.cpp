@@ -57,7 +57,7 @@ int main()
         ompsorter->sort(arrcopy);
         stop = high_resolution_clock::now();
         duration = duration_cast<nanoseconds>(stop - start);
-        printf("%d own paralel time: %ld\n", i, duration.count());
+        printf("arr(%d) own paralel time: %ld\n", i, duration.count());
     }
 
     //delete sorter;
