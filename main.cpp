@@ -2,15 +2,18 @@
 #include <algorithm>
 #include <algorithm>
 #include <chrono>
+#include <string.h>
 
 #include "sorting_network.h"
+#include "sorting_network_omp.h"
+#include "sorting_network_seq.h"
 
 using std::cout;
 using std::endl;
 using namespace std::chrono;
 
-#define ARRCOUNT 1
-#define ARRSIZE 8
+#define ARRCOUNT 100
+#define ARRSIZE 64
 
 int main()
 {
@@ -24,27 +27,41 @@ int main()
         }
     }
 
-    SortingNetwork *sorter = new SortingNetwork(ARRSIZE);
+    //SortingNetwork *sorter = new SortingNetwork(ARRSIZE);
+    SortingNetworkOmp *ompsorter = new SortingNetworkOmp(ARRSIZE);
+    SortingNetworkSeq *seqsorter = new SortingNetworkSeq(ARRSIZE);
 
     for (int i = 0; i < ARRCOUNT; i++)
     {
+        int arrcopy[ARRSIZE];
+        memcpy(arrcopy, arr[i], ARRSIZE);
+
         auto start = high_resolution_clock::now();
-        sorter->sort(arr[i]);
-        // sort_odd_even8(arr[i], true); // norm: 1400, par: 2349900
-        auto stop = high_resolution_clock::now(); // time: 4300
-
+        //sorter->sort(arr[i]);
+        seqsorter->sort(arrcopy);
+        // sort_odd_even8(arr[i], true);
+        auto stop = high_resolution_clock::now();
         auto duration = duration_cast<nanoseconds>(stop - start);
+        printf("arr(%d) sequential time: %ld\n", i, duration.count());
 
-        for (int j = 0; j < ARRSIZE; j++)
-        {
-            cout << arr[i][j] << ',';
-        }
-        cout << endl;
+        start = high_resolution_clock::now();
+        ompsorter->sort(arrcopy);
+        stop = high_resolution_clock::now();
+        duration = duration_cast<nanoseconds>(stop - start);
+        printf("arr(%d) openmp time: %ld\n", i, duration.count());
 
-        printf("%d time: %ld\n", i, duration.count());
+        //auto start = high_resolution_clock::now();
+        //sorter->sort(arr[i]);
+        //ompsorter->sort(arrcopy);
+        // sort_odd_even8(arr[i], true);
+        //auto stop = high_resolution_clock::now();
+        //auto duration = duration_cast<nanoseconds>(stop - start);
+        //printf("%d time: %ld\n", i, duration.count());
     }
 
-    delete sorter;
+    //delete sorter;
+    delete ompsorter;
+    delete seqsorter;
 
     return 0;
 }
