@@ -9,8 +9,8 @@ using std::cout;
 using std::endl;
 using namespace std::chrono;
 
-#define ARRCOUNT 5
-#define ARRSIZE 64
+#define ARRCOUNT 1
+#define ARRSIZE 8
 
 int main()
 {
