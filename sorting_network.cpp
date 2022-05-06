@@ -1,4 +1,5 @@
 #include "sorting_network.h"
+#include <vector>
 #include <cstdio>
 
 using std::cout;
@@ -7,6 +8,12 @@ using std::floor;
 using std::min;
 using std::swap;
 using std::thread;
+using std::vector;
+using std::pair;
+using std::make_pair;
+using std::count;
+using std::max_element;
+using std::min;
 
 void SortingNetwork::thread_fn(int index)
 {
@@ -42,7 +49,7 @@ void SortingNetwork::reset()
 
 void SortingNetwork::reset_run(int value)
 {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < thread_count; i++)
     {
         run[i] = value;
     }
@@ -56,15 +63,86 @@ SortingNetwork::~SortingNetwork()
         this->threads[i].join();
     }
     delete[] threads;
-    delete[] len_per_step;
     delete[] run;
     for (int i = 0; i < step_count; i++)
     {
-        for (int j = 0; j < thread_count; j++)
+        for (int j = 0; j < len_per_step[i]; j++)
             delete[] steps[i][j];
         delete[] steps[i];
     }
+    delete[] len_per_step;
     delete[] steps;
+}
+
+SortingNetwork::SortingNetwork(int len)
+{
+    this->killed = false;
+    vector<int> vec1;
+    vector<int> vec2;
+
+    for (int p=1; p<len; p+=p)
+        for (int k=p; k>0; k/=2)
+            for (int j=k%p; j<=len-1-k; j+=(k+k))
+                for (int i=0; i<=min(k-1,len-j-k-1); i++)
+                    if (floor((j+i)/(p+p)) == floor((j+i+k)/(p+p))){
+                        vec1.push_back(j+i);
+                        vec2.push_back(j+i+k);
+                    }
+
+    int size = vec1.size();
+    vector<int> visited;
+    vector<int> lens;
+
+    for(int i=0; i < size; i++){
+        if (count(visited.begin(), visited.end(), vec1[i]) || count(visited.begin(), visited.end(), vec2[i])){
+            int vis = visited.size() / 2;
+            lens.push_back(vis);
+            
+            visited.clear();
+        }
+
+        visited.push_back(vec1[i]);
+        visited.push_back(vec2[i]);
+
+        if (i == size - 1){
+            int vis = visited.size() / 2;
+            lens.push_back(vis);
+            
+            visited.clear();
+        }
+    }
+    step_count = lens.size();
+    len_per_step = new int[step_count];
+    for(int i=0; i < step_count; i++){
+        len_per_step[i] = lens[i];
+    }
+    thread_count = *std::max_element(begin(lens), end(lens));
+
+    threads = new thread[thread_count];
+    run = new int[thread_count];
+    steps = new int **[step_count];
+
+    int index = 0;
+    for (int i = 0; i < step_count; i++)
+    {
+        steps[i] = new int *[lens[i]];
+        for (int j = 0; j < lens[i]; j++)
+        {
+            steps[i][j] = new int[2];
+            steps[i][j][0] = vec1[index];
+            steps[i][j][1] = vec2[index];
+            //cout << "steps[" << i << "][" << j << "]" << "[0]: " << steps[i][j][0] << endl;
+            //cout << "steps[" << i << "][" << j << "]" << "[1]: " << steps[i][j][1] << endl;
+            index++;
+        }
+    }
+    
+    this->reset();
+
+    for (int i = 0; i < thread_count; i++)
+    {
+        this->threads[i] = thread(&SortingNetwork::thread_fn, this, i);
+    }
 }
 
 SortingNetwork::SortingNetwork()
@@ -84,7 +162,7 @@ SortingNetwork::SortingNetwork()
     for (int i = 0; i < step_count; i++)
     {
         steps[i] = new int *[thread_count];
-        for (int j = 0; j < thread_count; j++)
+        for (int j = 0; j < len_per_step[i]; j++)
         {
             steps[i][j] = new int[2];
         }
@@ -156,11 +234,11 @@ void SortingNetwork::sort(int *arr)
     this->arr = arr;
     this->step = 0;
     this->reset_run(1);
-    while (step < 6)
+    while (step < step_count)
     {
         if (!check_run())
         {
-            if (step == 5)
+            if (step == step_count-1)
                 break;
             step++;
             this->reset_run(1);

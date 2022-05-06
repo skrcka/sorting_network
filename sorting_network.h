@@ -15,6 +15,7 @@ class SortingNetwork
 public:
     void sort(int arr[]);
     SortingNetwork();
+    explicit SortingNetwork(int len);
     ~SortingNetwork();
 
 private:

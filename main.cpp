@@ -9,7 +9,7 @@ using std::cout;
 using std::endl;
 using namespace std::chrono;
 
-#define ARRCOUNT 256
+#define ARRCOUNT 5
 
 int main()
 {
@@ -23,7 +23,7 @@ int main()
         }
     }
 
-    SortingNetwork *sorter = new SortingNetwork();
+    SortingNetwork *sorter = new SortingNetwork(8);
 
     for (int i = 0; i < ARRCOUNT; i++)
     {
@@ -34,12 +34,11 @@ int main()
 
         auto duration = duration_cast<nanoseconds>(stop - start);
 
-        /*
         for(int j=0; j < 8; j++){
             cout << arr[i][j] << ',';
         }
         cout << endl;
-        */
+
         printf("%d time: %ld\n", i, duration.count());
     }
 
