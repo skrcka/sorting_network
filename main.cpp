@@ -35,7 +35,7 @@ int main()
     {
         int arrcopy[ARRSIZE];
         memcpy(arrcopy, arr[i], ARRSIZE * sizeof(int));
-
+        /*
         auto start = high_resolution_clock::now();
         //sorter->sort(arr[i]);
         seqsorter->sort(arrcopy);
@@ -50,13 +50,12 @@ int main()
         stop = high_resolution_clock::now();
         duration = duration_cast<nanoseconds>(stop - start);
         printf("arr(%d) openmp time: %ld\n", i, duration.count());
-
+        */
         memcpy(arrcopy, arr[i], ARRSIZE * sizeof(int));
-        start = high_resolution_clock::now();
-        sorter->sort(arr[i]);
-        ompsorter->sort(arrcopy);
-        stop = high_resolution_clock::now();
-        duration = duration_cast<nanoseconds>(stop - start);
+        auto start = high_resolution_clock::now();
+        sorter->sort(arrcopy);
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<nanoseconds>(stop - start);
         printf("arr(%d) own paralel time: %ld\n", i, duration.count());
     }
 

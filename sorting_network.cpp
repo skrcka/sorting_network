@@ -16,24 +16,27 @@ using std::vector;
 
 #define MAXTHREAD 12
 
-void SortingNetwork::thread_fn(int index)
+void SortingNetwork::thread_fn()
 {
-    while (!killed)
-    {
-        if (run[index] == 1)
+    for(;;) {
+        int index;
         {
-            run[index] = 2;
-            if (index >= len_per_step[step])
-            {
-                run[index] = 0;
-                continue;
+            std::unique_lock<std::mutex> lk(jobs_mutex);
+            jobs_cond.wait(lk, [&]() -> bool {return jobs.size() != 0 || kill;});
+            if(kill) {
+                return;
             }
-            // fprintf(stderr, "stage: %d; index: %d\n", step.load(), index);
-            if (arr[steps[step][index][0]] > arr[steps[step][index][1]])
-            {
-                swap(arr[steps[step][index][0]], arr[steps[step][index][1]]);
-            }
-            run[index] = 0;
+            index = jobs.front();
+            jobs.pop();
+        }
+
+        if (arr[steps[step][index][0]] > arr[steps[step][index][1]])
+        {
+            swap(arr[steps[step][index][0]], arr[steps[step][index][1]]);
+        }
+
+        if(++done == this->len_per_step[step]) {
+            done_mutex.unlock();
         }
     }
     return;
@@ -41,28 +44,19 @@ void SortingNetwork::thread_fn(int index)
 
 void SortingNetwork::reset()
 {
-    this->reset_run(0);
     this->step = -1;
     this->arr = nullptr;
-}
-
-void SortingNetwork::reset_run(int value)
-{
-    for (int i = 0; i < thread_count; i++)
-    {
-        run[i] = value;
-    }
+    done_mutex.unlock();
 }
 
 SortingNetwork::~SortingNetwork()
 {
-    this->killed = true;
+    kill = true;
+    jobs_cond.notify_all();
     for (int i = 0; i < thread_count; i++)
     {
         this->threads[i].join();
     }
-    delete[] threads;
-    delete[] run;
     for (int i = 0; i < step_count; i++)
     {
         for (int j = 0; j < len_per_step[i]; j++)
@@ -75,7 +69,7 @@ SortingNetwork::~SortingNetwork()
 
 SortingNetwork::SortingNetwork(int len)
 {
-    this->killed = false;
+    kill = false;
     vector<int> vec1;
     vector<int> vec2;
 
@@ -122,8 +116,9 @@ SortingNetwork::SortingNetwork(int len)
     }
     thread_count = *std::max_element(begin(lens), end(lens));
 
-    threads = new thread[thread_count];
-    run = new int[thread_count];
+    for(int i = 0; i < thread_count; i++) {
+        threads.emplace_back(&SortingNetwork::thread_fn, this);
+    }
     steps = new int **[step_count];
 
     int index = 0;
@@ -142,113 +137,22 @@ SortingNetwork::SortingNetwork(int len)
     }
 
     this->reset();
-
-    for (int i = 0; i < thread_count; i++)
-    {
-        this->threads[i] = thread(&SortingNetwork::thread_fn, this, i);
-    }
-}
-
-SortingNetwork::SortingNetwork()
-{
-    thread_count = 4;
-    threads = new thread[thread_count];
-    run = new int[thread_count];
-    step_count = 6;
-    steps = new int **[step_count];
-    len_per_step = new int[step_count];
-    len_per_step[0] = 4;
-    len_per_step[1] = 4;
-    len_per_step[2] = 2;
-    len_per_step[3] = 4;
-    len_per_step[4] = 2;
-    len_per_step[5] = 3;
-    for (int i = 0; i < step_count; i++)
-    {
-        steps[i] = new int *[thread_count];
-        for (int j = 0; j < len_per_step[i]; j++)
-        {
-            steps[i][j] = new int[2];
-        }
-    }
-    this->killed = false;
-    this->reset();
-    steps[0][0][0] = 0;
-    steps[0][0][1] = 1;
-    steps[0][1][0] = 2;
-    steps[0][1][1] = 3;
-    steps[0][2][0] = 4;
-    steps[0][2][1] = 5;
-    steps[0][3][0] = 6;
-    steps[0][3][1] = 7;
-
-    steps[1][0][0] = 0;
-    steps[1][0][1] = 2;
-    steps[1][1][0] = 1;
-    steps[1][1][1] = 3;
-    steps[1][2][0] = 4;
-    steps[1][2][1] = 6;
-    steps[1][3][0] = 5;
-    steps[1][3][1] = 7;
-
-    steps[2][0][0] = 1;
-    steps[2][0][1] = 2;
-    steps[2][1][0] = 5;
-    steps[2][1][1] = 6;
-
-    steps[3][0][0] = 0;
-    steps[3][0][1] = 4;
-    steps[3][1][0] = 1;
-    steps[3][1][1] = 5;
-    steps[3][2][0] = 2;
-    steps[3][2][1] = 6;
-    steps[3][3][0] = 3;
-    steps[3][3][1] = 7;
-
-    steps[4][0][0] = 2;
-    steps[4][0][1] = 4;
-    steps[4][1][0] = 3;
-    steps[4][1][1] = 5;
-
-    steps[5][0][0] = 1;
-    steps[5][0][1] = 2;
-    steps[5][1][0] = 3;
-    steps[5][1][1] = 4;
-    steps[5][2][0] = 5;
-    steps[5][2][1] = 6;
-
-    for (int i = 0; i < thread_count; i++)
-    {
-        this->threads[i] = thread(&SortingNetwork::thread_fn, this, i);
-    }
-}
-
-int SortingNetwork::check_run()
-{
-    for (int i = 0; i < thread_count; i++)
-    {
-        if (run[i] == 1)
-            return 1;
-        if (run[i] == 2)
-            return 2;
-    }
-    return 0;
 }
 
 void SortingNetwork::sort(int *arr)
 {
+    done_mutex.lock();
     this->arr = arr;
     this->step = 0;
-    this->reset_run(1);
-    while (step < step_count)
+    for(int i = step; i < step_count; i++)
     {
-        if (!check_run())
-        {
-            if (step == step_count - 1)
-                break;
-            step++;
-            this->reset_run(1);
+        done = 0;
+        for(int j = 0; j < len_per_step[step]; j++) {
+            std::unique_lock<std::mutex> lk(jobs_mutex);
+            jobs.emplace(j);
+            jobs_cond.notify_one();
         }
+        done_mutex.lock();
     }
     reset();
 }
