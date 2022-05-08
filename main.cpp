@@ -20,13 +20,17 @@ int main()
     srand(time(0));
     ofstream f("results.csv");
     f << "Array count,Array size,Sorter,Time" << endl;
-
-    for(int arrsize = 4; arrsize <= 256; arrsize*=2) {
+    for(int xd=0; xd < 20; xd++){
+    for(int arrsize = 8; arrsize <= 256; arrsize+=8) {
         SortingNetwork *sorter = new SortingNetwork(arrsize);
         SortingNetworkOmp *ompsorter = new SortingNetworkOmp(arrsize);
         SortingNetworkSeq *seqsorter = new SortingNetworkSeq(arrsize);
 
-        for(int arrcount = 10; arrcount <= 1000; arrcount+=10) {
+        uint64_t time_sorter = 0;
+        uint64_t time_openmp = 0;
+        uint64_t time_sequential = 0;
+        uint64_t time_stdsort = 0;
+        for(int arrcount = 10; arrcount <= 100; arrcount+=10) {
             int arr[arrcount][arrsize];
             for (int i = 0; i < arrcount; i++)
             {
@@ -36,7 +40,6 @@ int main()
                 }
             }
 
-            uint64_t time = 0;
             for (int i = 0; i < arrcount; i++)
             {
                 int arrcopy[arrsize];
@@ -45,11 +48,10 @@ int main()
                 sorter->sort(arrcopy);
                 auto stop = high_resolution_clock::now();
                 auto duration = duration_cast<nanoseconds>(stop - start);
-                time += duration.count();
+                time_sorter += duration.count();
             }
-            f << arrcount << ',' << arrsize << ",own sorting network," << time << endl;
+            f << arrcount << ',' << arrsize << ",own sorting network," << time_sorter << endl;
 
-            time = 0;
             for (int i = 0; i < arrcount; i++)
             {
                 int arrcopy[arrsize];
@@ -58,11 +60,10 @@ int main()
                 ompsorter->sort(arrcopy);
                 auto stop = high_resolution_clock::now();
                 auto duration = duration_cast<nanoseconds>(stop - start);
-                time += duration.count();
+                time_openmp += duration.count();
             }
-            f << arrcount << ',' << arrsize << ",openmp sorting network," << time << endl;
+            f << arrcount << ',' << arrsize << ",openmp sorting network," << time_openmp << endl;
 
-            time = 0;
             for (int i = 0; i < arrcount; i++)
             {
                 int arrcopy[arrsize];
@@ -71,11 +72,10 @@ int main()
                 seqsorter->sort(arrcopy);
                 auto stop = high_resolution_clock::now();
                 auto duration = duration_cast<nanoseconds>(stop - start);
-                time += duration.count();
+                time_sequential += duration.count();
             }
-            f << arrcount << ',' << arrsize << ",sequential sorting network," << time << endl;
+            f << arrcount << ',' << arrsize << ",sequential sorting network," << time_sequential << endl;
 
-            time = 0;
             for (int i = 0; i < arrcount; i++)
             {
                 int arrcopy[arrsize];
@@ -84,13 +84,14 @@ int main()
                 sort(arrcopy, arrcopy + arrsize);
                 auto stop = high_resolution_clock::now();
                 auto duration = duration_cast<nanoseconds>(stop - start);
-                time += duration.count();
+                time_stdsort += duration.count();
             }
-            f << arrcount << ',' << arrsize << ",std::sort," << time << endl;
+            f << arrcount << ',' << arrsize << ",std::sort," << time_stdsort << endl;
         }
         delete sorter;
         delete ompsorter;
         delete seqsorter;
+    }
     }
 
     f.close();

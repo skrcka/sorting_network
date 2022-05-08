@@ -14,7 +14,7 @@ using std::swap;
 using std::thread;
 using std::vector;
 
-#define MAXTHREAD 12
+#define MAXTHREAD 5
 
 void SortingNetwork::thread_fn()
 {
@@ -114,7 +114,7 @@ SortingNetwork::SortingNetwork(int len)
     {
         len_per_step[i] = lens[i];
     }
-    thread_count = *std::max_element(begin(lens), end(lens));
+    thread_count = min(*std::max_element(begin(lens), end(lens)), MAXTHREAD);
 
     for(int i = 0; i < thread_count; i++) {
         threads.emplace_back(&SortingNetwork::thread_fn, this);

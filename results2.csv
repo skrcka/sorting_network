@@ -1,0 +1,1281 @@
+Array count,Array size,Sorter,Time
+10,8,own sorting network,4911200
+10,8,openmp sorting network,3600
+10,8,sequential sorting network,4000
+10,8,std::sort,3500
+20,8,own sorting network,15284100
+20,8,openmp sorting network,10600
+20,8,sequential sorting network,10800
+20,8,std::sort,8900
+30,8,own sorting network,33223200
+30,8,openmp sorting network,24500
+30,8,sequential sorting network,21600
+30,8,std::sort,17100
+40,8,own sorting network,55484200
+40,8,openmp sorting network,42200
+40,8,sequential sorting network,39500
+40,8,std::sort,31600
+50,8,own sorting network,83288400
+50,8,openmp sorting network,61100
+50,8,sequential sorting network,55900
+50,8,std::sort,47900
+60,8,own sorting network,115814700
+60,8,openmp sorting network,81100
+60,8,sequential sorting network,75300
+60,8,std::sort,69000
+70,8,own sorting network,152696300
+70,8,openmp sorting network,103900
+70,8,sequential sorting network,98000
+70,8,std::sort,86300
+80,8,own sorting network,198849000
+80,8,openmp sorting network,129800
+80,8,sequential sorting network,124600
+80,8,std::sort,106600
+90,8,own sorting network,247417700
+90,8,openmp sorting network,157000
+90,8,sequential sorting network,152900
+90,8,std::sort,127000
+100,8,own sorting network,298732600
+100,8,openmp sorting network,189000
+100,8,sequential sorting network,185000
+100,8,std::sort,151000
+10,16,own sorting network,16619400
+10,16,openmp sorting network,10000
+10,16,sequential sorting network,10300
+10,16,std::sort,6500
+20,16,own sorting network,49576000
+20,16,openmp sorting network,29300
+20,16,sequential sorting network,30100
+20,16,std::sort,18800
+30,16,own sorting network,98570900
+30,16,openmp sorting network,58300
+30,16,sequential sorting network,59900
+30,16,std::sort,36700
+40,16,own sorting network,163138300
+40,16,openmp sorting network,97000
+40,16,sequential sorting network,99900
+40,16,std::sort,58400
+50,16,own sorting network,242874900
+50,16,openmp sorting network,144700
+50,16,sequential sorting network,148800
+50,16,std::sort,86600
+60,16,own sorting network,340675400
+60,16,openmp sorting network,202100
+60,16,sequential sorting network,207000
+60,16,std::sort,119900
+70,16,own sorting network,453184300
+70,16,openmp sorting network,275200
+70,16,sequential sorting network,273300
+70,16,std::sort,160600
+80,16,own sorting network,582503100
+80,16,openmp sorting network,351100
+80,16,sequential sorting network,349000
+80,16,std::sort,204500
+90,16,own sorting network,726313800
+90,16,openmp sorting network,439200
+90,16,sequential sorting network,434300
+90,16,std::sort,253700
+100,16,own sorting network,887233900
+100,16,openmp sorting network,534900
+100,16,sequential sorting network,530300
+100,16,std::sort,307800
+10,24,own sorting network,36466800
+10,24,openmp sorting network,19900
+10,24,sequential sorting network,19700
+10,24,std::sort,13100
+20,24,own sorting network,109017700
+20,24,openmp sorting network,56600
+20,24,sequential sorting network,56800
+20,24,std::sort,36100
+30,24,own sorting network,220772200
+30,24,openmp sorting network,112400
+30,24,sequential sorting network,113500
+30,24,std::sort,69400
+40,24,own sorting network,367217500
+40,24,openmp sorting network,185400
+40,24,sequential sorting network,186700
+40,24,std::sort,113900
+50,24,own sorting network,552135600
+50,24,openmp sorting network,277300
+50,24,sequential sorting network,278800
+50,24,std::sort,167000
+60,24,own sorting network,773579300
+60,24,openmp sorting network,387100
+60,24,sequential sorting network,390400
+60,24,std::sort,232200
+70,24,own sorting network,1035602200
+70,24,openmp sorting network,515500
+70,24,sequential sorting network,521100
+70,24,std::sort,306700
+80,24,own sorting network,1332646600
+80,24,openmp sorting network,662300
+80,24,sequential sorting network,668900
+80,24,std::sort,391800
+90,24,own sorting network,1666770700
+90,24,openmp sorting network,825700
+90,24,sequential sorting network,849400
+90,24,std::sort,486900
+100,24,own sorting network,2158678300
+100,24,openmp sorting network,1207500
+100,24,sequential sorting network,1102200
+100,24,std::sort,630500
+10,32,own sorting network,66301600
+10,32,openmp sorting network,44200
+10,32,sequential sorting network,52200
+10,32,std::sort,25400
+20,32,own sorting network,190058900
+20,32,openmp sorting network,108600
+20,32,sequential sorting network,109700
+20,32,std::sort,60400
+30,32,own sorting network,371637700
+30,32,openmp sorting network,254700
+30,32,sequential sorting network,193500
+30,32,std::sort,110100
+40,32,own sorting network,586993200
+40,32,openmp sorting network,360400
+40,32,sequential sorting network,325800
+40,32,std::sort,175700
+50,32,own sorting network,844939300
+50,32,openmp sorting network,492200
+50,32,sequential sorting network,467000
+50,32,std::sort,253300
+60,32,own sorting network,1150449300
+60,32,openmp sorting network,648100
+60,32,sequential sorting network,624000
+60,32,std::sort,345100
+70,32,own sorting network,1498156100
+70,32,openmp sorting network,840400
+70,32,sequential sorting network,810800
+70,32,std::sort,453500
+80,32,own sorting network,1895379800
+80,32,openmp sorting network,1050600
+80,32,sequential sorting network,1029000
+80,32,std::sort,574800
+90,32,own sorting network,2351355700
+90,32,openmp sorting network,1290600
+90,32,sequential sorting network,1269800
+90,32,std::sort,711400
+100,32,own sorting network,2849434800
+100,32,openmp sorting network,1548600
+100,32,sequential sorting network,1529900
+100,32,std::sort,871900
+10,40,own sorting network,85354900
+10,40,openmp sorting network,43000
+10,40,sequential sorting network,42700
+10,40,std::sort,22000
+20,40,own sorting network,255393300
+20,40,openmp sorting network,123800
+20,40,sequential sorting network,124300
+20,40,std::sort,63400
+30,40,own sorting network,513096000
+30,40,openmp sorting network,242500
+30,40,sequential sorting network,245200
+30,40,std::sort,125300
+40,40,own sorting network,859622700
+40,40,openmp sorting network,423500
+40,40,sequential sorting network,395300
+40,40,std::sort,202900
+50,40,own sorting network,1290306400
+50,40,openmp sorting network,622500
+50,40,sequential sorting network,603200
+50,40,std::sort,304800
+60,40,own sorting network,1806953100
+60,40,openmp sorting network,859700
+60,40,sequential sorting network,854400
+60,40,std::sort,425500
+70,40,own sorting network,2428980300
+70,40,openmp sorting network,1140100
+70,40,sequential sorting network,1145000
+70,40,std::sort,566900
+80,40,own sorting network,3139949800
+80,40,openmp sorting network,1466300
+80,40,sequential sorting network,1470400
+80,40,std::sort,728300
+90,40,own sorting network,3927327300
+90,40,openmp sorting network,1828400
+90,40,sequential sorting network,1831800
+90,40,std::sort,909800
+100,40,own sorting network,4847668900
+100,40,openmp sorting network,2231600
+100,40,sequential sorting network,2232100
+100,40,std::sort,1111800
+10,48,own sorting network,107748000
+10,48,openmp sorting network,51900
+10,48,sequential sorting network,51500
+10,48,std::sort,27300
+20,48,own sorting network,314750900
+20,48,openmp sorting network,153700
+20,48,sequential sorting network,152600
+20,48,std::sort,89700
+30,48,own sorting network,619283800
+30,48,openmp sorting network,310800
+30,48,sequential sorting network,302600
+30,48,std::sort,166800
+40,48,own sorting network,1028668100
+40,48,openmp sorting network,510900
+40,48,sequential sorting network,502200
+40,48,std::sort,268900
+50,48,own sorting network,1539857200
+50,48,openmp sorting network,756200
+50,48,sequential sorting network,760400
+50,48,std::sort,394300
+60,48,own sorting network,2158727800
+60,48,openmp sorting network,1051200
+60,48,sequential sorting network,1057900
+60,48,std::sort,546800
+70,48,own sorting network,2884163000
+70,48,openmp sorting network,1395400
+70,48,sequential sorting network,1425300
+70,48,std::sort,723300
+80,48,own sorting network,3700920300
+80,48,openmp sorting network,1796600
+80,48,sequential sorting network,1820900
+80,48,std::sort,933800
+90,48,own sorting network,4609598100
+90,48,openmp sorting network,2241100
+90,48,sequential sorting network,2281300
+90,48,std::sort,1161500
+100,48,own sorting network,5636074800
+100,48,openmp sorting network,2732200
+100,48,sequential sorting network,2799000
+100,48,std::sort,1414100
+10,56,own sorting network,115876600
+10,56,openmp sorting network,64600
+10,56,sequential sorting network,61500
+10,56,std::sort,32500
+20,56,own sorting network,353959200
+20,56,openmp sorting network,184900
+20,56,sequential sorting network,183600
+20,56,std::sort,95600
+30,56,own sorting network,710434100
+30,56,openmp sorting network,364300
+30,56,sequential sorting network,363400
+30,56,std::sort,189200
+40,56,own sorting network,1186652600
+40,56,openmp sorting network,601300
+40,56,sequential sorting network,601700
+40,56,std::sort,314000
+50,56,own sorting network,1777012800
+50,56,openmp sorting network,906300
+50,56,sequential sorting network,905100
+50,56,std::sort,467000
+60,56,own sorting network,2488272400
+60,56,openmp sorting network,1259000
+60,56,sequential sorting network,1271200
+60,56,std::sort,649300
+70,56,own sorting network,3318503200
+70,56,openmp sorting network,1750100
+70,56,sequential sorting network,1730100
+70,56,std::sort,877900
+80,56,own sorting network,4278484700
+80,56,openmp sorting network,2228400
+80,56,sequential sorting network,2213000
+80,56,std::sort,1121100
+90,56,own sorting network,5356090900
+90,56,openmp sorting network,2757600
+90,56,sequential sorting network,2750400
+90,56,std::sort,1393500
+100,56,own sorting network,6550263100
+100,56,openmp sorting network,3351600
+100,56,sequential sorting network,3350900
+100,56,std::sort,1698000
+10,64,own sorting network,136515500
+10,64,openmp sorting network,75000
+10,64,sequential sorting network,85400
+10,64,std::sort,52500
+20,64,own sorting network,410560600
+20,64,openmp sorting network,220900
+20,64,sequential sorting network,236900
+20,64,std::sort,125400
+30,64,own sorting network,822725200
+30,64,openmp sorting network,434400
+30,64,sequential sorting network,456700
+30,64,std::sort,234700
+40,64,own sorting network,1367522000
+40,64,openmp sorting network,718200
+40,64,sequential sorting network,740400
+40,64,std::sort,379100
+50,64,own sorting network,2053355400
+50,64,openmp sorting network,1115200
+50,64,sequential sorting network,1122800
+50,64,std::sort,567100
+60,64,own sorting network,2876187300
+60,64,openmp sorting network,1553300
+60,64,sequential sorting network,1548100
+60,64,std::sort,791900
+70,64,own sorting network,3827555200
+70,64,openmp sorting network,2051000
+70,64,sequential sorting network,2042900
+70,64,std::sort,1051400
+80,64,own sorting network,4914795700
+80,64,openmp sorting network,2619600
+80,64,sequential sorting network,2613300
+80,64,std::sort,1338000
+90,64,own sorting network,6156286600
+90,64,openmp sorting network,3261800
+90,64,sequential sorting network,3253500
+90,64,std::sort,1667900
+100,64,own sorting network,7590147000
+100,64,openmp sorting network,4079500
+100,64,sequential sorting network,4092000
+100,64,std::sort,2056800
+10,72,own sorting network,227383000
+10,72,openmp sorting network,97500
+10,72,sequential sorting network,96900
+10,72,std::sort,43200
+20,72,own sorting network,668245200
+20,72,openmp sorting network,295800
+20,72,sequential sorting network,296200
+20,72,std::sort,131000
+30,72,own sorting network,1299728000
+30,72,openmp sorting network,584300
+30,72,sequential sorting network,607000
+30,72,std::sort,257000
+40,72,own sorting network,2122108200
+40,72,openmp sorting network,967400
+40,72,sequential sorting network,986200
+40,72,std::sort,421400
+50,72,own sorting network,3185128800
+50,72,openmp sorting network,1462900
+50,72,sequential sorting network,1474900
+50,72,std::sort,629300
+60,72,own sorting network,4484988200
+60,72,openmp sorting network,2050100
+60,72,sequential sorting network,2073700
+60,72,std::sort,889900
+70,72,own sorting network,6033437900
+70,72,openmp sorting network,2740600
+70,72,sequential sorting network,2826500
+70,72,std::sort,1208200
+80,72,own sorting network,7792826800
+80,72,openmp sorting network,3504300
+80,72,sequential sorting network,3592600
+80,72,std::sort,1568700
+90,72,own sorting network,9826713000
+90,72,openmp sorting network,4356700
+90,72,sequential sorting network,4451800
+90,72,std::sort,1954200
+100,72,own sorting network,11905354100
+100,72,openmp sorting network,5305500
+100,72,sequential sorting network,5415700
+100,72,std::sort,2372200
+10,80,own sorting network,233485900
+10,80,openmp sorting network,118700
+10,80,sequential sorting network,107600
+10,80,std::sort,48900
+20,80,own sorting network,708698900
+20,80,openmp sorting network,333100
+20,80,sequential sorting network,330000
+20,80,std::sort,143000
+30,80,own sorting network,1510368000
+30,80,openmp sorting network,726200
+30,80,sequential sorting network,716100
+30,80,std::sort,311700
+40,80,own sorting network,2535097500
+40,80,openmp sorting network,1185300
+40,80,sequential sorting network,1174000
+40,80,std::sort,531000
+50,80,own sorting network,3859694700
+50,80,openmp sorting network,1774200
+50,80,sequential sorting network,1803300
+50,80,std::sort,851400
+60,80,own sorting network,5482487000
+60,80,openmp sorting network,2522500
+60,80,sequential sorting network,2593300
+60,80,std::sort,1187900
+70,80,own sorting network,7334995000
+70,80,openmp sorting network,3321700
+70,80,sequential sorting network,3443400
+70,80,std::sort,1545300
+80,80,own sorting network,9493643400
+80,80,openmp sorting network,4330500
+80,80,sequential sorting network,4441700
+80,80,std::sort,2008500
+90,80,own sorting network,11653449700
+90,80,openmp sorting network,5323400
+90,80,sequential sorting network,5510600
+90,80,std::sort,2491000
+100,80,own sorting network,13978565400
+100,80,openmp sorting network,6476100
+100,80,sequential sorting network,6692300
+100,80,std::sort,3009800
+10,88,own sorting network,250615500
+10,88,openmp sorting network,124400
+10,88,sequential sorting network,132300
+10,88,std::sort,59300
+20,88,own sorting network,757471100
+20,88,openmp sorting network,360300
+20,88,sequential sorting network,372700
+20,88,std::sort,165300
+30,88,own sorting network,1563152200
+30,88,openmp sorting network,748500
+30,88,sequential sorting network,773600
+30,88,std::sort,338500
+40,88,own sorting network,2633935200
+40,88,openmp sorting network,1219100
+40,88,sequential sorting network,1252600
+40,88,std::sort,548600
+50,88,own sorting network,3951120300
+50,88,openmp sorting network,1912200
+50,88,sequential sorting network,1946300
+50,88,std::sort,845200
+60,88,own sorting network,5552596900
+60,88,openmp sorting network,2672500
+60,88,sequential sorting network,2766700
+60,88,std::sort,1207500
+70,88,own sorting network,7345269100
+70,88,openmp sorting network,3493700
+70,88,sequential sorting network,3624200
+70,88,std::sort,1600800
+80,88,own sorting network,9386807000
+80,88,openmp sorting network,4485000
+80,88,sequential sorting network,4672600
+80,88,std::sort,2074000
+90,88,own sorting network,11706892900
+90,88,openmp sorting network,5680700
+90,88,sequential sorting network,5923900
+90,88,std::sort,2618200
+100,88,own sorting network,14335419100
+100,88,openmp sorting network,6875900
+100,88,sequential sorting network,7330600
+100,88,std::sort,3205400
+10,96,own sorting network,282390400
+10,96,openmp sorting network,131100
+10,96,sequential sorting network,131000
+10,96,std::sort,66900
+20,96,own sorting network,848500700
+20,96,openmp sorting network,416800
+20,96,sequential sorting network,425700
+20,96,std::sort,192900
+30,96,own sorting network,1705435600
+30,96,openmp sorting network,827200
+30,96,sequential sorting network,814900
+30,96,std::sort,367400
+40,96,own sorting network,2836663000
+40,96,openmp sorting network,1370100
+40,96,sequential sorting network,1354100
+40,96,std::sort,604000
+50,96,own sorting network,4319377800
+50,96,openmp sorting network,2165700
+50,96,sequential sorting network,2163900
+50,96,std::sort,957500
+60,96,own sorting network,6004970300
+60,96,openmp sorting network,2961100
+60,96,sequential sorting network,3036200
+60,96,std::sort,1354000
+70,96,own sorting network,8061372000
+70,96,openmp sorting network,3866500
+70,96,sequential sorting network,3966100
+70,96,std::sort,1760000
+80,96,own sorting network,10488776200
+80,96,openmp sorting network,7609400
+80,96,sequential sorting network,6426100
+80,96,std::sort,2541100
+90,96,own sorting network,13069133100
+90,96,openmp sorting network,8862400
+90,96,sequential sorting network,7673700
+90,96,std::sort,3092700
+100,96,own sorting network,16014146200
+100,96,openmp sorting network,10382100
+100,96,sequential sorting network,9212300
+100,96,std::sort,3713400
+10,104,own sorting network,332879600
+10,104,openmp sorting network,223200
+10,104,sequential sorting network,175200
+10,104,std::sort,69900
+20,104,own sorting network,960959900
+20,104,openmp sorting network,526500
+20,104,sequential sorting network,468400
+20,104,std::sort,203800
+30,104,own sorting network,1906605300
+30,104,openmp sorting network,999000
+30,104,sequential sorting network,960000
+30,104,std::sort,414200
+40,104,own sorting network,3154223700
+40,104,openmp sorting network,1574200
+40,104,sequential sorting network,1558700
+40,104,std::sort,685300
+50,104,own sorting network,4695832800
+50,104,openmp sorting network,2298300
+50,104,sequential sorting network,2283800
+50,104,std::sort,1004200
+60,104,own sorting network,6570462200
+60,104,openmp sorting network,3185600
+60,104,sequential sorting network,3216300
+60,104,std::sort,1419400
+70,104,own sorting network,8721975800
+70,104,openmp sorting network,4295200
+70,104,sequential sorting network,4249500
+70,104,std::sort,1873000
+80,104,own sorting network,11238924300
+80,104,openmp sorting network,5450300
+80,104,sequential sorting network,5510600
+80,104,std::sort,2432900
+90,104,own sorting network,14018544300
+90,104,openmp sorting network,6826700
+90,104,sequential sorting network,7003700
+90,104,std::sort,3013500
+100,104,own sorting network,17136590900
+100,104,openmp sorting network,8370700
+100,104,sequential sorting network,8654000
+100,104,std::sort,3795800
+10,112,own sorting network,334838200
+10,112,openmp sorting network,162500
+10,112,sequential sorting network,164400
+10,112,std::sort,79900
+20,112,own sorting network,1012327900
+20,112,openmp sorting network,483200
+20,112,sequential sorting network,479100
+20,112,std::sort,221000
+30,112,own sorting network,2006761400
+30,112,openmp sorting network,954800
+30,112,sequential sorting network,945300
+30,112,std::sort,530900
+40,112,own sorting network,3321072200
+40,112,openmp sorting network,1569600
+40,112,sequential sorting network,1573700
+40,112,std::sort,828500
+50,112,own sorting network,4954017100
+50,112,openmp sorting network,2364400
+50,112,sequential sorting network,2429800
+50,112,std::sort,1226200
+60,112,own sorting network,6907845200
+60,112,openmp sorting network,3368700
+60,112,sequential sorting network,3477000
+60,112,std::sort,1756700
+70,112,own sorting network,9724263400
+70,112,openmp sorting network,4880400
+70,112,sequential sorting network,4958200
+70,112,std::sort,2417900
+80,112,own sorting network,13123230200
+80,112,openmp sorting network,6530500
+80,112,sequential sorting network,6650200
+80,112,std::sort,3194700
+90,112,own sorting network,17182414300
+90,112,openmp sorting network,8560000
+90,112,sequential sorting network,8660300
+90,112,std::sort,4095800
+100,112,own sorting network,22045109700
+100,112,openmp sorting network,10712900
+100,112,sequential sorting network,10910800
+100,112,std::sort,5061900
+10,120,own sorting network,495669300
+10,120,openmp sorting network,252500
+10,120,sequential sorting network,242700
+10,120,std::sort,109900
+20,120,own sorting network,1453054900
+20,120,openmp sorting network,724500
+20,120,sequential sorting network,713800
+20,120,std::sort,329000
+30,120,own sorting network,2859723600
+30,120,openmp sorting network,1429500
+30,120,sequential sorting network,1415600
+30,120,std::sort,643900
+40,120,own sorting network,4723712600
+40,120,openmp sorting network,2353000
+40,120,sequential sorting network,2338700
+40,120,std::sort,1048800
+50,120,own sorting network,7000141100
+50,120,openmp sorting network,3468100
+50,120,sequential sorting network,3445800
+50,120,std::sort,1540700
+60,120,own sorting network,9759863500
+60,120,openmp sorting network,4778300
+60,120,sequential sorting network,4772400
+60,120,std::sort,2134800
+70,120,own sorting network,12949325600
+70,120,openmp sorting network,6277100
+70,120,sequential sorting network,6275700
+70,120,std::sort,2812900
+80,120,own sorting network,16464046500
+80,120,openmp sorting network,8062800
+80,120,sequential sorting network,8084400
+80,120,std::sort,3606700
+90,120,own sorting network,20530526400
+90,120,openmp sorting network,10054900
+90,120,sequential sorting network,10074700
+90,120,std::sort,4500600
+100,120,own sorting network,24975978600
+100,120,openmp sorting network,12254600
+100,120,sequential sorting network,12339600
+100,120,std::sort,5486700
+10,128,own sorting network,501273600
+10,128,openmp sorting network,255700
+10,128,sequential sorting network,246500
+10,128,std::sort,111700
+20,128,own sorting network,1577019000
+20,128,openmp sorting network,797600
+20,128,sequential sorting network,794200
+20,128,std::sort,356400
+30,128,own sorting network,3438747900
+30,128,openmp sorting network,1747300
+30,128,sequential sorting network,1727700
+30,128,std::sort,747300
+40,128,own sorting network,5631035300
+40,128,openmp sorting network,2639100
+40,128,sequential sorting network,2622700
+40,128,std::sort,1346700
+50,128,own sorting network,8018538400
+50,128,openmp sorting network,4086900
+50,128,sequential sorting network,4052900
+50,128,std::sort,1974700
+60,128,own sorting network,11049211400
+60,128,openmp sorting network,5417500
+60,128,sequential sorting network,5414300
+60,128,std::sort,2583900
+70,128,own sorting network,14157063500
+70,128,openmp sorting network,6984900
+70,128,sequential sorting network,6998600
+70,128,std::sort,3263800
+80,128,own sorting network,17828331300
+80,128,openmp sorting network,8761200
+80,128,sequential sorting network,8806600
+80,128,std::sort,4044100
+90,128,own sorting network,21645414300
+90,128,openmp sorting network,10729800
+90,128,sequential sorting network,10773300
+90,128,std::sort,4928300
+100,128,own sorting network,25870165900
+100,128,openmp sorting network,12874400
+100,128,sequential sorting network,12897100
+100,128,std::sort,5875800
+10,136,own sorting network,576610200
+10,136,openmp sorting network,267200
+10,136,sequential sorting network,260000
+10,136,std::sort,101300
+20,136,own sorting network,1739091100
+20,136,openmp sorting network,795400
+20,136,sequential sorting network,780400
+20,136,std::sort,305000
+30,136,own sorting network,3455798200
+30,136,openmp sorting network,1620100
+30,136,sequential sorting network,1576700
+30,136,std::sort,622200
+40,136,own sorting network,5738532900
+40,136,openmp sorting network,2745100
+40,136,sequential sorting network,2617500
+40,136,std::sort,1036700
+50,136,own sorting network,8552856400
+50,136,openmp sorting network,4244700
+50,136,sequential sorting network,4031400
+50,136,std::sort,1583400
+60,136,own sorting network,12390136500
+60,136,openmp sorting network,5956900
+60,136,sequential sorting network,5767800
+60,136,std::sort,2253700
+70,136,own sorting network,16583324600
+70,136,openmp sorting network,7684200
+70,136,sequential sorting network,7574400
+70,136,std::sort,2935700
+80,136,own sorting network,21206138800
+80,136,openmp sorting network,9772900
+80,136,sequential sorting network,9622400
+80,136,std::sort,3727900
+90,136,own sorting network,26327245700
+90,136,openmp sorting network,12124800
+90,136,sequential sorting network,11964500
+90,136,std::sort,4659900
+100,136,own sorting network,31990336400
+100,136,openmp sorting network,14594900
+100,136,sequential sorting network,14476700
+100,136,std::sort,5619900
+10,144,own sorting network,593306900
+10,144,openmp sorting network,296500
+10,144,sequential sorting network,270500
+10,144,std::sort,104400
+20,144,own sorting network,1815909300
+20,144,openmp sorting network,839600
+20,144,sequential sorting network,807400
+20,144,std::sort,325400
+30,144,own sorting network,3599412100
+30,144,openmp sorting network,1716100
+30,144,sequential sorting network,1620100
+30,144,std::sort,643600
+40,144,own sorting network,6040666300
+40,144,openmp sorting network,2820400
+40,144,sequential sorting network,2711500
+40,144,std::sort,1071400
+50,144,own sorting network,8909734800
+50,144,openmp sorting network,4189800
+50,144,sequential sorting network,4068200
+50,144,std::sort,1610600
+60,144,own sorting network,12407404700
+60,144,openmp sorting network,5719500
+60,144,sequential sorting network,5659300
+60,144,std::sort,2215300
+70,144,own sorting network,16263083100
+70,144,openmp sorting network,7462600
+70,144,sequential sorting network,7441200
+70,144,std::sort,2908900
+80,144,own sorting network,20899932000
+80,144,openmp sorting network,9511700
+80,144,sequential sorting network,9487100
+80,144,std::sort,3784300
+90,144,own sorting network,25989255300
+90,144,openmp sorting network,11800400
+90,144,sequential sorting network,11785400
+90,144,std::sort,4701000
+100,144,own sorting network,31578092000
+100,144,openmp sorting network,14301000
+100,144,sequential sorting network,14376300
+100,144,std::sort,5686400
+10,152,own sorting network,598312300
+10,152,openmp sorting network,281800
+10,152,sequential sorting network,271600
+10,152,std::sort,108500
+20,152,own sorting network,1888184300
+20,152,openmp sorting network,856800
+20,152,sequential sorting network,868200
+20,152,std::sort,345300
+30,152,own sorting network,3749013000
+30,152,openmp sorting network,1709800
+30,152,sequential sorting network,1716900
+30,152,std::sort,681000
+40,152,own sorting network,6149610700
+40,152,openmp sorting network,2794100
+40,152,sequential sorting network,2814200
+40,152,std::sort,1108400
+50,152,own sorting network,9139736300
+50,152,openmp sorting network,4210300
+50,152,sequential sorting network,4192700
+50,152,std::sort,1710900
+60,152,own sorting network,13087331900
+60,152,openmp sorting network,5837100
+60,152,sequential sorting network,5831300
+60,152,std::sort,2358600
+70,152,own sorting network,17219070100
+70,152,openmp sorting network,7780400
+70,152,sequential sorting network,7780100
+70,152,std::sort,3108500
+80,152,own sorting network,22111636200
+80,152,openmp sorting network,9904700
+80,152,sequential sorting network,9890400
+80,152,std::sort,3965500
+90,152,own sorting network,27380834400
+90,152,openmp sorting network,12411300
+90,152,sequential sorting network,12425300
+90,152,std::sort,4928300
+100,152,own sorting network,33501029500
+100,152,openmp sorting network,15465600
+100,152,sequential sorting network,15461900
+100,152,std::sort,6139800
+10,160,own sorting network,658139700
+10,160,openmp sorting network,302400
+10,160,sequential sorting network,314700
+10,160,std::sort,121000
+20,160,own sorting network,2030358500
+20,160,openmp sorting network,917400
+20,160,sequential sorting network,940200
+20,160,std::sort,366900
+30,160,own sorting network,4034364900
+30,160,openmp sorting network,1818600
+30,160,sequential sorting network,2178200
+30,160,std::sort,746900
+40,160,own sorting network,6664079000
+40,160,openmp sorting network,2956100
+40,160,sequential sorting network,3324100
+40,160,std::sort,1206700
+50,160,own sorting network,10601161800
+50,160,openmp sorting network,4542200
+50,160,sequential sorting network,4940200
+50,160,std::sort,1846900
+60,160,own sorting network,14809995900
+60,160,openmp sorting network,6414700
+60,160,sequential sorting network,6833500
+60,160,std::sort,2589300
+70,160,own sorting network,20017852100
+70,160,openmp sorting network,8935200
+70,160,sequential sorting network,9476100
+70,160,std::sort,3658300
+80,160,own sorting network,26061152500
+80,160,openmp sorting network,11717200
+80,160,sequential sorting network,12257700
+80,160,std::sort,4760500
+90,160,own sorting network,32850613900
+90,160,openmp sorting network,14425700
+90,160,sequential sorting network,14964900
+90,160,std::sort,5837400
+100,160,own sorting network,39482735600
+100,160,openmp sorting network,17427300
+100,160,sequential sorting network,17971900
+100,160,std::sort,7025100
+10,168,own sorting network,687162100
+10,168,openmp sorting network,349500
+10,168,sequential sorting network,322800
+10,168,std::sort,128600
+20,168,own sorting network,2046158300
+20,168,openmp sorting network,991900
+20,168,sequential sorting network,972500
+20,168,std::sort,382400
+30,168,own sorting network,4075760200
+30,168,openmp sorting network,1934800
+30,168,sequential sorting network,1911600
+30,168,std::sort,760800
+40,168,own sorting network,6898066100
+40,168,openmp sorting network,3210300
+40,168,sequential sorting network,3227300
+40,168,std::sort,1279000
+50,168,own sorting network,10347442800
+50,168,openmp sorting network,4779700
+50,168,sequential sorting network,4776700
+50,168,std::sort,1900500
+60,168,own sorting network,14419435600
+60,168,openmp sorting network,6736600
+60,168,sequential sorting network,6734100
+60,168,std::sort,2663200
+70,168,own sorting network,19263562100
+70,168,openmp sorting network,8948100
+70,168,sequential sorting network,8994300
+70,168,std::sort,3548600
+80,168,own sorting network,24787105300
+80,168,openmp sorting network,11414000
+80,168,sequential sorting network,11527800
+80,168,std::sort,4540300
+90,168,own sorting network,31039101100
+90,168,openmp sorting network,14192100
+90,168,sequential sorting network,14340300
+90,168,std::sort,5654500
+100,168,own sorting network,37789285100
+100,168,openmp sorting network,17292000
+100,168,sequential sorting network,17476300
+100,168,std::sort,6911700
+10,176,own sorting network,745277800
+10,176,openmp sorting network,333900
+10,176,sequential sorting network,339200
+10,176,std::sort,136100
+20,176,own sorting network,2180739600
+20,176,openmp sorting network,1056300
+20,176,sequential sorting network,1023900
+20,176,std::sort,397600
+30,176,own sorting network,4338813200
+30,176,openmp sorting network,2054300
+30,176,sequential sorting network,2037700
+30,176,std::sort,785300
+40,176,own sorting network,7220531000
+40,176,openmp sorting network,3393600
+40,176,sequential sorting network,3384300
+40,176,std::sort,1326200
+50,176,own sorting network,10775400800
+50,176,openmp sorting network,5017500
+50,176,sequential sorting network,5032900
+50,176,std::sort,1977400
+60,176,own sorting network,15026423600
+60,176,openmp sorting network,7008300
+60,176,sequential sorting network,7032300
+60,176,std::sort,2762600
+70,176,own sorting network,20243656200
+70,176,openmp sorting network,9279000
+70,176,sequential sorting network,9338900
+70,176,std::sort,3672100
+80,176,own sorting network,26158118900
+80,176,openmp sorting network,12038200
+80,176,sequential sorting network,11978700
+80,176,std::sort,4744700
+90,176,own sorting network,32797942300
+90,176,openmp sorting network,14972000
+90,176,sequential sorting network,14966000
+90,176,std::sort,5915700
+100,176,own sorting network,40068563000
+100,176,openmp sorting network,18298900
+100,176,sequential sorting network,18278700
+100,176,std::sort,7212000
+10,184,own sorting network,768696000
+10,184,openmp sorting network,429600
+10,184,sequential sorting network,350800
+10,184,std::sort,139100
+20,184,own sorting network,2262549600
+20,184,openmp sorting network,1192400
+20,184,sequential sorting network,1133800
+20,184,std::sort,457000
+30,184,own sorting network,4637712800
+30,184,openmp sorting network,2211700
+30,184,sequential sorting network,2235600
+30,184,std::sort,867700
+40,184,own sorting network,7640722000
+40,184,openmp sorting network,3564300
+40,184,sequential sorting network,3620900
+40,184,std::sort,1404500
+50,184,own sorting network,11581108500
+50,184,openmp sorting network,5350000
+50,184,sequential sorting network,5796400
+50,184,std::sort,2149200
+60,184,own sorting network,15956183500
+60,184,openmp sorting network,7412400
+60,184,sequential sorting network,8107200
+60,184,std::sort,2976600
+70,184,own sorting network,21126121800
+70,184,openmp sorting network,9818400
+70,184,sequential sorting network,10551400
+70,184,std::sort,3933200
+80,184,own sorting network,27143405300
+80,184,openmp sorting network,12513500
+80,184,sequential sorting network,13255400
+80,184,std::sort,4998600
+90,184,own sorting network,33721184900
+90,184,openmp sorting network,15460800
+90,184,sequential sorting network,16247900
+90,184,std::sort,6172400
+100,184,own sorting network,40980760500
+100,184,openmp sorting network,18880100
+100,184,sequential sorting network,19653600
+100,184,std::sort,7532400
+10,192,own sorting network,768654600
+10,192,openmp sorting network,355800
+10,192,sequential sorting network,389100
+10,192,std::sort,140900
+20,192,own sorting network,2289517700
+20,192,openmp sorting network,1084800
+20,192,sequential sorting network,1121800
+20,192,std::sort,429300
+30,192,own sorting network,4727581000
+30,192,openmp sorting network,2132600
+30,192,sequential sorting network,2175100
+30,192,std::sort,847700
+40,192,own sorting network,7681549200
+40,192,openmp sorting network,3617700
+40,192,sequential sorting network,3600000
+40,192,std::sort,1420700
+50,192,own sorting network,11335199600
+50,192,openmp sorting network,5320000
+50,192,sequential sorting network,5377500
+50,192,std::sort,2113600
+60,192,own sorting network,15696229300
+60,192,openmp sorting network,7370500
+60,192,sequential sorting network,7439800
+60,192,std::sort,2942100
+70,192,own sorting network,21034850900
+70,192,openmp sorting network,10129800
+70,192,sequential sorting network,10401100
+70,192,std::sort,4044500
+80,192,own sorting network,27293102900
+80,192,openmp sorting network,13019900
+80,192,sequential sorting network,13385600
+80,192,std::sort,5200700
+90,192,own sorting network,34222444900
+90,192,openmp sorting network,16333700
+90,192,sequential sorting network,16677100
+90,192,std::sort,6493000
+100,192,own sorting network,42009141500
+100,192,openmp sorting network,19874100
+100,192,sequential sorting network,20381200
+100,192,std::sort,7895000
+10,200,own sorting network,869611300
+10,200,openmp sorting network,415200
+10,200,sequential sorting network,433300
+10,200,std::sort,165700
+20,200,own sorting network,2575638900
+20,200,openmp sorting network,1218800
+20,200,sequential sorting network,1244000
+20,200,std::sort,472900
+30,200,own sorting network,5017716800
+30,200,openmp sorting network,2384900
+30,200,sequential sorting network,2401200
+30,200,std::sort,925100
+40,200,own sorting network,8173501500
+40,200,openmp sorting network,3983400
+40,200,sequential sorting network,3900000
+40,200,std::sort,1510700
+50,200,own sorting network,12180160800
+50,200,openmp sorting network,6014300
+50,200,sequential sorting network,5967700
+50,200,std::sort,2322900
+60,200,own sorting network,17320599800
+60,200,openmp sorting network,8280600
+60,200,sequential sorting network,8284400
+60,200,std::sort,3226100
+70,200,own sorting network,22865479500
+70,200,openmp sorting network,10923100
+70,200,sequential sorting network,10962100
+70,200,std::sort,4286600
+80,200,own sorting network,29256874100
+80,200,openmp sorting network,13931600
+80,200,sequential sorting network,14073900
+80,200,std::sort,5513700
+90,200,own sorting network,36586502900
+90,200,openmp sorting network,17440700
+90,200,sequential sorting network,17638200
+90,200,std::sort,6910200
+100,200,own sorting network,44670136100
+100,200,openmp sorting network,21145100
+100,200,sequential sorting network,21358200
+100,200,std::sort,8378100
+10,208,own sorting network,809007700
+10,208,openmp sorting network,395800
+10,208,sequential sorting network,385400
+10,208,std::sort,155600
+20,208,own sorting network,2433163100
+20,208,openmp sorting network,1199000
+20,208,sequential sorting network,1191600
+20,208,std::sort,463400
+30,208,own sorting network,4916342900
+30,208,openmp sorting network,2394200
+30,208,sequential sorting network,2394100
+30,208,std::sort,947500
+40,208,own sorting network,8203073900
+40,208,openmp sorting network,3975000
+40,208,sequential sorting network,3929500
+40,208,std::sort,1567500
+50,208,own sorting network,12370155000
+50,208,openmp sorting network,5959300
+50,208,sequential sorting network,5906000
+50,208,std::sort,2359700
+60,208,own sorting network,17998121900
+60,208,openmp sorting network,8255700
+60,208,sequential sorting network,8224900
+60,208,std::sort,3331300
+70,208,own sorting network,23753429500
+70,208,openmp sorting network,10878000
+70,208,sequential sorting network,10918900
+70,208,std::sort,4391300
+80,208,own sorting network,30316050200
+80,208,openmp sorting network,14339100
+80,208,sequential sorting network,14331400
+80,208,std::sort,5722100
+90,208,own sorting network,38215374000
+90,208,openmp sorting network,17790500
+90,208,sequential sorting network,17836500
+90,208,std::sort,7100300
+100,208,own sorting network,46562936700
+100,208,openmp sorting network,21867100
+100,208,sequential sorting network,21915600
+100,208,std::sort,8813900
+10,216,own sorting network,897691600
+10,216,openmp sorting network,410200
+10,216,sequential sorting network,401900
+10,216,std::sort,168700
+20,216,own sorting network,2581021500
+20,216,openmp sorting network,1216700
+20,216,sequential sorting network,1209700
+20,216,std::sort,491100
+30,216,own sorting network,5065869400
+30,216,openmp sorting network,2419300
+30,216,sequential sorting network,2543500
+30,216,std::sort,981000
+40,216,own sorting network,8494374600
+40,216,openmp sorting network,4082100
+40,216,sequential sorting network,4181200
+40,216,std::sort,1642500
+50,216,own sorting network,12969602900
+50,216,openmp sorting network,6269400
+50,216,sequential sorting network,6385400
+50,216,std::sort,2513200
+60,216,own sorting network,18303061200
+60,216,openmp sorting network,8781200
+60,216,sequential sorting network,8869800
+60,216,std::sort,3508500
+70,216,own sorting network,24445762300
+70,216,openmp sorting network,11690500
+70,216,sequential sorting network,11749600
+70,216,std::sort,4661700
+80,216,own sorting network,31426038000
+80,216,openmp sorting network,14962800
+80,216,sequential sorting network,15141200
+80,216,std::sort,5988400
+90,216,own sorting network,39369770800
+90,216,openmp sorting network,18749000
+90,216,sequential sorting network,18851500
+90,216,std::sort,7476500
+100,216,own sorting network,48504742100
+100,216,openmp sorting network,22962900
+100,216,sequential sorting network,23175400
+100,216,std::sort,9170000
+10,224,own sorting network,910340200
+10,224,openmp sorting network,426300
+10,224,sequential sorting network,438200
+10,224,std::sort,176400
+20,224,own sorting network,2743899800
+20,224,openmp sorting network,1280900
+20,224,sequential sorting network,1331600
+20,224,std::sort,530000
+30,224,own sorting network,5461052300
+30,224,openmp sorting network,2583400
+30,224,sequential sorting network,2642700
+30,224,std::sort,1042700
+40,224,own sorting network,9025710500
+40,224,openmp sorting network,4248300
+40,224,sequential sorting network,4341800
+40,224,std::sort,1719200
+50,224,own sorting network,13433643800
+50,224,openmp sorting network,6388800
+50,224,sequential sorting network,6419500
+50,224,std::sort,2558800
+60,224,own sorting network,18763114500
+60,224,openmp sorting network,8996700
+60,224,sequential sorting network,9082400
+60,224,std::sort,3618200
+70,224,own sorting network,24979431900
+70,224,openmp sorting network,11926600
+70,224,sequential sorting network,12012900
+70,224,std::sort,4789900
+80,224,own sorting network,32142263500
+80,224,openmp sorting network,15406000
+80,224,sequential sorting network,15368400
+80,224,std::sort,6128200
+90,224,own sorting network,40067396400
+90,224,openmp sorting network,19027700
+90,224,sequential sorting network,19057600
+90,224,std::sort,7627200
+100,224,own sorting network,48762905700
+100,224,openmp sorting network,23314200
+100,224,sequential sorting network,23394000
+100,224,std::sort,9351900
+10,232,own sorting network,899529300
+10,232,openmp sorting network,433300
+10,232,sequential sorting network,447500
+10,232,std::sort,176500
+20,232,own sorting network,2741822900
+20,232,openmp sorting network,1313100
+20,232,sequential sorting network,1341100
+20,232,std::sort,532100
+30,232,own sorting network,5441170000
+30,232,openmp sorting network,2575700
+30,232,sequential sorting network,2612200
+30,232,std::sort,1037000
+40,232,own sorting network,9015937000
+40,232,openmp sorting network,4310800
+40,232,sequential sorting network,4363300
+40,232,std::sort,1739600
+50,232,own sorting network,13441507600
+50,232,openmp sorting network,6413300
+50,232,sequential sorting network,6488400
+50,232,std::sort,2590000
+60,232,own sorting network,18979947700
+60,232,openmp sorting network,8995800
+60,232,sequential sorting network,9145900
+60,232,std::sort,3633700
+70,232,own sorting network,25395421200
+70,232,openmp sorting network,12069700
+70,232,sequential sorting network,12229700
+70,232,std::sort,4859000
+80,232,own sorting network,32851245900
+80,232,openmp sorting network,15799800
+80,232,sequential sorting network,15935900
+80,232,std::sort,6323500
+90,232,own sorting network,41244083000
+90,232,openmp sorting network,19905900
+90,232,sequential sorting network,20036800
+90,232,std::sort,7939600
+100,232,own sorting network,50859601800
+100,232,openmp sorting network,24347000
+100,232,sequential sorting network,24538600
+100,232,std::sort,9722300
+10,240,own sorting network,989466100
+10,240,openmp sorting network,479200
+10,240,sequential sorting network,482100
+10,240,std::sort,193100
+20,240,own sorting network,2997997900
+20,240,openmp sorting network,1421700
+20,240,sequential sorting network,1428100
+20,240,std::sort,564400
+30,240,own sorting network,5879082500
+30,240,openmp sorting network,2812700
+30,240,sequential sorting network,2822300
+30,240,std::sort,1129300
+40,240,own sorting network,9800507100
+40,240,openmp sorting network,4718500
+40,240,sequential sorting network,4745300
+40,240,std::sort,1885800
+50,240,own sorting network,14496997600
+50,240,openmp sorting network,7085600
+50,240,sequential sorting network,7142600
+50,240,std::sort,2817400
+60,240,own sorting network,20390268900
+60,240,openmp sorting network,10125300
+60,240,sequential sorting network,10195100
+60,240,std::sort,4055200
+70,240,own sorting network,28153809400
+70,240,openmp sorting network,13687400
+70,240,sequential sorting network,13765800
+70,240,std::sort,5459200
+80,240,own sorting network,36408414900
+80,240,openmp sorting network,17327000
+80,240,sequential sorting network,17388600
+80,240,std::sort,6917600
+90,240,own sorting network,44980829500
+90,240,openmp sorting network,21425100
+90,240,sequential sorting network,21503800
+90,240,std::sort,8668000
+100,240,own sorting network,54310511000
+100,240,openmp sorting network,25816000
+100,240,sequential sorting network,25952000
+100,240,std::sort,10437000
+10,248,own sorting network,980656300
+10,248,openmp sorting network,463400
+10,248,sequential sorting network,476600
+10,248,std::sort,189400
+20,248,own sorting network,2934039600
+20,248,openmp sorting network,1379400
+20,248,sequential sorting network,1397300
+20,248,std::sort,574800
+30,248,own sorting network,5868020800
+30,248,openmp sorting network,2794500
+30,248,sequential sorting network,2804600
+30,248,std::sort,1143100
+40,248,own sorting network,9759515200
+40,248,openmp sorting network,4652300
+40,248,sequential sorting network,4706800
+40,248,std::sort,1892100
+50,248,own sorting network,14540038100
+50,248,openmp sorting network,6933500
+50,248,sequential sorting network,7257000
+50,248,std::sort,2817300
+60,248,own sorting network,20423931700
+60,248,openmp sorting network,9839700
+60,248,sequential sorting network,10185300
+60,248,std::sort,3978800
+70,248,own sorting network,27283164900
+70,248,openmp sorting network,13114600
+70,248,sequential sorting network,13532300
+70,248,std::sort,5292500
+80,248,own sorting network,35152511200
+80,248,openmp sorting network,16944200
+80,248,sequential sorting network,17395000
+80,248,std::sort,6859900
+90,248,own sorting network,44143668500
+90,248,openmp sorting network,21238100
+90,248,sequential sorting network,21812700
+90,248,std::sort,8597800
+100,248,own sorting network,54423895300
+100,248,openmp sorting network,26054500
+100,248,sequential sorting network,26698400
+100,248,std::sort,10528600
+10,256,own sorting network,1027430700
+10,256,openmp sorting network,496500
+10,256,sequential sorting network,501100
+10,256,std::sort,203600
+20,256,own sorting network,3092299800
+20,256,openmp sorting network,1533000
+20,256,sequential sorting network,1551200
+20,256,std::sort,605700
+30,256,own sorting network,6146882200
+30,256,openmp sorting network,3050000
+30,256,sequential sorting network,3074300
+30,256,std::sort,1219000
+40,256,own sorting network,10292122400
+40,256,openmp sorting network,5030800
+40,256,sequential sorting network,5079100
+40,256,std::sort,2026600
+50,256,own sorting network,15418838400
+50,256,openmp sorting network,7468700
+50,256,sequential sorting network,7535000
+50,256,std::sort,3052400
+60,256,own sorting network,21544231100
+60,256,openmp sorting network,10465900
+60,256,sequential sorting network,10579800
+60,256,std::sort,4256000
+70,256,own sorting network,28928678600
+70,256,openmp sorting network,14109100
+70,256,sequential sorting network,14913400
+70,256,std::sort,5729300
+80,256,own sorting network,37271560500
+80,256,openmp sorting network,18880300
+80,256,sequential sorting network,19177800
+80,256,std::sort,7430300
+90,256,own sorting network,46460894300
+90,256,openmp sorting network,23400600
+90,256,sequential sorting network,23849100
+90,256,std::sort,9248800
+100,256,own sorting network,56675637900
+100,256,openmp sorting network,28356400
+100,256,sequential sorting network,28885500
+100,256,std::sort,11268200
