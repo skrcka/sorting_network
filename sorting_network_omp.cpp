@@ -1,6 +1,7 @@
 #include "sorting_network_omp.h"
 #include <vector>
 #include <cstdio>
+#include <omp.h>
 
 using std::count;
 using std::cout;
@@ -158,7 +159,7 @@ void SortingNetworkOmp::sort(int *arr)
 {
     this->arr = arr;
     for(int i=0; i < step_count; i++){
-        #pragma omp paralel for
+        #pragma omp parallel for
         for(int j=0; j < len_per_step[i]; j++){
             if(arr[steps[i][j][0]] > arr[steps[i][j][1]])
                 swap(arr[steps[i][j][0]], arr[steps[i][j][1]]);
